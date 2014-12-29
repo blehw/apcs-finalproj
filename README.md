@@ -10,3 +10,4 @@ Changelog
  - 12/19 created repo WY
  - 12/22 outlined project plan, and started the BaseGhost and Map classes GR WY
  - 12/27 minor addition to Map constructor WY
+ - 12/28 edited Map constructor and started Pacman.java
