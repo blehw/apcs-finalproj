@@ -9,7 +9,20 @@ public class Map {
 		grid[r][c] = 1;
 	    }
 	}
+	for (int r=1;r<grid[0].length-1;r++) {
+	    grid[r][7] = 2;
+	}
+	for (int c=1;c<grid[0].length-1;c++) {
+	    grid[7][c] = 2;
+	}
+	for (int c=1;c<grid[0].length-1;c++) {
+	    grid[3][c] = 2;
+	}
+	for (int c=1;c<grid[0].length-1;c++) {
+	    grid[11][c] = 2;
+	}
     }
+
 
     public String toString() {
 	String s = "";
