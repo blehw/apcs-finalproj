@@ -6,6 +6,12 @@ public class GUI extends JFrame {
 
     private Container pane;
     private JLabel l;
+    private ImageIcon map1;
+    private JLabel map2;
+    private JPanel map3;
+    private ImageIcon pac1;
+    private JLabel pac2;
+    private JPanel pac3;
 
     public GUI() {
 
@@ -20,13 +26,18 @@ public class GUI extends JFrame {
 	l = new JLabel("Pacman");
 	pane.add(l);
 
-        ImageIcon image = new ImageIcon("images/level1.png");
-	JLabel label = new JLabel("", image, JLabel.CENTER);
-	JPanel panel = new JPanel(new BorderLayout());
-	panel.add( label, BorderLayout.CENTER );
-	pane.add(panel);
-	
+        map1 = new ImageIcon("images/level1.png");
+	map2 = new JLabel("", map1, JLabel.CENTER);
+	map3 = new JPanel(new BorderLayout());
+	map3.add( map2, BorderLayout.CENTER );
+	pane.add(map3);
 
+	pac1 = new ImageIcon("images/pacman.png");
+	pac2 = new JLabel("", pac1, JLabel.CENTER);
+	pac3 = new JPanel(new BorderLayout());
+	pac3.add( pac2, BorderLayout.CENTER );
+	pane.add(pac3);
+	
 	/*
 	canvas = new JPanel();
 	canvas.setPreferredSize(new Dimension(300,300));
