@@ -8,7 +8,7 @@ public class GUI extends JFrame {
     private JLabel l;
     private ImageIcon map1;
     private JLabel map2;
-    private JPanel map3;
+    private JPanel canvas;
     private ImageIcon pac1;
     private JLabel pac2;
     private JPanel pac3;
@@ -16,7 +16,7 @@ public class GUI extends JFrame {
     public GUI() {
 
 	setTitle("Pacman");
-	setSize(800,800);
+	setSize(1000,1000);
 	setLocation(100,100);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -28,9 +28,9 @@ public class GUI extends JFrame {
 
         map1 = new ImageIcon("images/level1.png");
 	map2 = new JLabel("", map1, JLabel.CENTER);
-	map3 = new JPanel(new BorderLayout());
-	map3.add( map2, BorderLayout.CENTER );
-	pane.add(map3);
+	canvas = new JPanel(new BorderLayout());
+	canvas.add( map2, BorderLayout.CENTER );
+	pane.add(canvas);
 
 	pac1 = new ImageIcon("images/pacman.png");
 	pac2 = new JLabel("", pac1, JLabel.CENTER);
