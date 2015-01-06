@@ -1,24 +1,35 @@
 import java.util.*;
 
-public BaseChar {
+public class BaseChar {
 
+    private int level;
+    private int experience;
     private int health;
     private int speed;
     private int defense;
-    private int strength;
-    private int magic;
+    private int attack;
     private String name;
     private Random r;
 
-    public Basechar {
+    public BaseChar() {
         r = new Random();
-	health = 100;
-	speed = randomValue(5, 10);
-	defense = randomValue(5, 10);
-	strength = randomValue(5, 10);
-	magic = randomValue(5, 10);
+	level = 1;
+	experience = 0;
+	health = 20;
+	speed = r.nexInt(5, 10);
+	defense = r.nexInt(5, 10);
+	attack = r.nexInt(5, 10);
+	magic = r.nexInt(5, 10);
     }
 
+    public int getLevel() {
+	return level;
+    }
+
+    public int getExperience() {
+	return experience;
+    }
+    
     public int getHealth() {
 	return health;
     }
@@ -31,8 +42,8 @@ public BaseChar {
 	return defense;
     }
 
-    public int getStrength() {
-	return strength;
+    public int getAttack() {
+	return attack;
     }
 
     public int getMagic() {
@@ -51,12 +62,8 @@ public BaseChar {
 	this.defense = value;
     }
 
-    public void setStrength(int value) {
-	this.strength = value;
-    }
-
-    public void setMagic(int value) {
-	this.magic = value;
+    public void setAttack(int value) {
+	this.attack = value;
     }
 
     public String status(){
@@ -64,18 +71,38 @@ public BaseChar {
 	s += "Health:  " + health + "\n";
 	s += "Speed:   " + speed + "\n";
 	s += "Defense: " + defense + "\n";
-	s += "Strength:" + strength + "\n";
-        s += "Magic:   " + magic;
+	s += "Attack:  " + attack + "\n";
 	return s;
     }
 
-    public String punch(BaseChar opponent) {
-	if (randomValue(0,100) >= 95) {
-	    int newHealth = o
-	} else {
-	    s = "You missed" + opponent;
-	}
+    public int damage(BaseChar opponent, int base) {
+	return ((((2* this.getLevel() + 10)/250) *
+		(this.getAttack()/opponent.getDefense()) *
+		 base) + 2);
     }
-  
+
+    public String tackle(BaseChar opponent) {
+	String s ="";
+	if (randomValue(0,100) <= 95) {
+	    int newHealth = opponent.getHealth() - 50;
+	    opponent.setHealth(newHealth);
+	    s = this + " used TACKLE!";
+	    
+	} else {
+	    s = this + " used TACKLE! But it missed!";
+	}
+	return s;
+    }
+
+    public String recover() {
+	String s ="";
+	if (random(0,100) <= 95) {
+	    int newHealth = this.getHealth() + (this.getHealth()/4);
+	    s = this + " used RECOVER!";
+	} else {
+	    s = this + " used RECOVER! But it failed!"; 
+	}
+	return s;
+    }
     
 }
