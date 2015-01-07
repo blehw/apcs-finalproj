@@ -1,9 +1,12 @@
+import java.util.*;
+
 public class Charmander extends Fire {
 
     private String[] moves = new String[4];
+    private Random r = new Random();
 
     public Charmander() {
-	name = "CHARMANDER";
+	setName("CHARMANDER");
 	moves[0] = "TACKLE";
 	moves[1] = "RECOVER";
     }
@@ -24,9 +27,15 @@ public class Charmander extends Fire {
 	return moves[3];
     }
 
-    public int ember(BaseChar opponent) {
+     public int ember(BaseChar opponent) {
 	String s = "";
 	int modifier = 1;
+	if (opponent.getWeakness() == "Fire") {
+	    modifier = modifier * 2;
+	}
+	if (opponent.getResistance() == "Fire") {
+	    modifier = modifier/2;
+	}
 	if (r.nextInt(100) <= 100) {
 	    int newHealth = opponent.getHealth() - super.damage(opponent,40);
 	    opponent.setHealth(newHealth);
@@ -34,4 +43,5 @@ public class Charmander extends Fire {
 	}
 	return s;
     }
+	 
 }

@@ -10,6 +10,7 @@ public class BaseChar {
     private int attack;
     private String name;
     private String weakness;
+    private String resistance;
     private Random r = new Random();
 
     public BaseChar() {
@@ -45,6 +46,14 @@ public class BaseChar {
 	return attack;
     }
 
+    public String getWeakness() {
+	return weakness;
+    }
+
+    public String getResistance() {
+	return resistance;
+    }
+
     public void setHealth(int value) {
 	this.health = value;
     }
@@ -59,6 +68,18 @@ public class BaseChar {
 
     public void setAttack(int value) {
 	this.attack = value;
+    }
+
+    public void setWeakness(String s) {
+	this.weakness = s;
+    }
+
+    public void setResistance(String s) {
+	this.resistance = s;
+    }
+
+    public void setName(String s) {
+	this.name = s;
     }
 
     public String status(){
