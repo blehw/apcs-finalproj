@@ -9,6 +9,7 @@ public class BaseChar {
     private int defense;
     private int attack;
     private String name;
+    private String weakness;
     private Random r = new Random();
 
     public BaseChar() {
