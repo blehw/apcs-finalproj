@@ -9,17 +9,15 @@ public class BaseChar {
     private int defense;
     private int attack;
     private String name;
-    private Random r;
+    private Random r = new Random();
 
     public BaseChar() {
-        r = new Random();
 	level = 1;
 	experience = 0;
 	health = 20;
-	speed = r.nexInt(5, 10);
-	defense = r.nexInt(5, 10);
-	attack = r.nexInt(5, 10);
-	magic = r.nexInt(5, 10);
+	speed = r.nextInt(5)+5;
+	defense = r.nextInt(5)+5;
+	attack = r.nextInt(5)+5;
     }
 
     public int getLevel() {
@@ -44,10 +42,6 @@ public class BaseChar {
 
     public int getAttack() {
 	return attack;
-    }
-
-    public int getMagic() {
-	return magic;
     }
 
     public void setHealth(int value) {
@@ -83,7 +77,7 @@ public class BaseChar {
 
     public String tackle(BaseChar opponent) {
 	String s ="";
-	if (randomValue(0,100) <= 95) {
+	if (r.nextInt(100) <= 95) {
 	    int newHealth = opponent.getHealth() - 50;
 	    opponent.setHealth(newHealth);
 	    s = this + " used TACKLE!";
@@ -96,7 +90,7 @@ public class BaseChar {
 
     public String recover() {
 	String s ="";
-	if (random(0,100) <= 95) {
+	if (r.nextInt(100) <= 95) {
 	    int newHealth = this.getHealth() + (this.getHealth()/4);
 	    s = this + " used RECOVER!";
 	} else {
