@@ -20,7 +20,8 @@ public class Charmander extends Fire {
 	    modifier = modifier/2;
 	}
 	if (r.nextInt(100) <= 100) {
-	    int newHealth = opponent.getHealth() - super.damage(opponent,40);
+	    int newHealth = opponent.getHealth() -
+		(super.damage(opponent,40)*modifier);
 	    opponent.setHealth(newHealth);
 	    s = this + " used EMBER!";
 	}
