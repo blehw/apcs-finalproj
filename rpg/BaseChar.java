@@ -11,6 +11,7 @@ public class BaseChar {
     private String name;
     private String weakness;
     private String resistance;
+    private String[] moves = new String[4];
     private Random r = new Random();
 
     public BaseChar() {
@@ -54,6 +55,22 @@ public class BaseChar {
 	return resistance;
     }
 
+    public String getMoves0() {
+	return moves[0];
+    }
+
+    public String getMoves1() {
+	return moves[1];
+    }
+    
+    public String getMoves2() {
+	return moves[2];
+    }
+
+    public String getMoves3() {
+	return moves[3];
+    }
+
     public void setHealth(int value) {
 	this.health = value;
     }
@@ -80,6 +97,22 @@ public class BaseChar {
 
     public void setName(String s) {
 	this.name = s;
+    }
+
+     public void setMoves0(String move) {
+	 moves[0] = move;
+    }
+
+    public void setMoves1(String move) {
+	 moves[1] = move;
+    }
+
+    public void setMoves2(String move) {
+	 moves[2] = move;
+    }
+
+    public void setMoves3(String move) {
+	 moves[3] = move;
     }
 
     public String status(){
