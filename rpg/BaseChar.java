@@ -23,6 +23,10 @@ public class BaseChar {
 	attack = r.nextInt(5)+5;
     }
 
+    public String toString() {
+	return name;
+    }
+
     public int getLevel() {
 	return level;
     }
