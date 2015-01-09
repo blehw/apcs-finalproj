@@ -190,6 +190,7 @@ public class BaseChar {
 	} else {
 	    s = this + " used TACKLE! But it missed!";
 	}
+	
 	return s;
     }
 
@@ -205,12 +206,12 @@ public class BaseChar {
     }
 
     public String moveset() {
-	String s = moves[0] + "\n" + moves[1];
+	String s = moves[0] + "  " + PP[0] + "\n" + moves[1] + "  " + PP[1];
 	if (moves[2] != null) {
-	    s = s + "\n" + moves[2];
+	    s = s + "\n" + moves[2] + PP[2];
 	}
 	if (moves[3] != null) {
-	    s = s + "\n" + moves[3];
+	    s = s + "\n" + moves[3] + PP[3];
 	}
 	return s;	    
     }
