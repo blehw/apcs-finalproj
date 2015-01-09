@@ -6,6 +6,7 @@ public class Pokemon {
 	System.out.println(c2.getHealth());
 	System.out.println(c1.tackle(c2));
 	System.out.println(c2.getHealth());
+	System.out.println(c1.moveset());
     }
     
 }

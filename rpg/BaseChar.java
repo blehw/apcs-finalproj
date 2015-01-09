@@ -9,6 +9,7 @@ public class BaseChar {
     private int defense;
     private int attack;
     private String name;
+    private String type;
     private String weakness;
     private String resistance;
     private String[] moves = new String[4];
@@ -75,32 +76,36 @@ public class BaseChar {
 	return moves[3];
     }
 
+    public String getType() {
+	return type;
+    }
+
     public void setHealth(int value) {
-	this.health = value;
+	health = value;
     }
 
     public void setSpeed(int value) {
-	this.speed = value;
+	speed = value;
     }
 
     public void setDefense(int value) {
-	this.defense = value;
+	defense = value;
     }
 
     public void setAttack(int value) {
-	this.attack = value;
+	attack = value;
     }
 
     public void setWeakness(String s) {
-	this.weakness = s;
+	weakness = s;
     }
 
     public void setResistance(String s) {
-	this.resistance = s;
+	resistance = s;
     }
 
     public void setName(String s) {
-	this.name = s;
+	name = s;
     }
 
      public void setMoves0(String move) {
@@ -117,6 +122,10 @@ public class BaseChar {
 
     public void setMoves3(String move) {
 	 moves[3] = move;
+    }
+
+    public void setType(String s) {
+	type = s;
     }
 
     public String status(){
@@ -137,7 +146,7 @@ public class BaseChar {
     public String tackle(BaseChar opponent) {
 	String s ="";
 	if (r.nextInt(100) <= 95) {
-	    int newHealth = opponent.getHealth() - 50;
+	    int newHealth = opponent.getHealth() - damage(opponent,50);;
 	    opponent.setHealth(newHealth);
 	    s = this + " used TACKLE!";
 	    
@@ -157,5 +166,17 @@ public class BaseChar {
 	}
 	return s;
     }
+
+    public String moveset() {
+	String s = moves[0] + "\n" + moves[1];
+	if (moves[2] != null) {
+	    s = s + "\n" + moves[2];
+	}
+	if (moves[3] != null) {
+	    s = s + "\n" + moves[3];
+	}
+	return s;	    
+    }
+	
     
 }
