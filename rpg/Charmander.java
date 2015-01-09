@@ -6,8 +6,6 @@ public class Charmander extends Fire {
 
     public Charmander() {
 	setName("CHARMANDER");
-	setMoves0("TACKLE");
-	setMoves1("RECOVER");
     }
 
      public String ember(BaseChar opponent) {

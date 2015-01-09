@@ -23,6 +23,10 @@ public class BaseChar {
 	speed = r.nextInt(5)+5;
 	defense = r.nextInt(5)+5;
 	attack = r.nextInt(5)+5;
+	setMoves0("TACKLE");
+	setMoves1("RECOVER");
+	setPP0(35);
+	setPP1(10);
     }
 
     public String toString() {
@@ -129,8 +133,8 @@ public class BaseChar {
 	name = s;
     }
 
-     public void setMoves0(String move) {
-	 moves[0] = move;
+    public void setMoves0(String move) {
+	moves[0] = move;
     }
 
     public void setMoves1(String move) {
@@ -143,6 +147,22 @@ public class BaseChar {
 
     public void setMoves3(String move) {
 	 moves[3] = move;
+    }
+
+    public void setPP0(int n) {
+	 PP[0] = n;
+    }
+
+    public void setPP1(int n) {
+	PP[1] = n;
+    }
+
+    public void setPP2(int n) {
+	PP[2] = n;
+    }
+
+    public void setPP3(int n) {
+	PP[3] = n;
     }
 
     public String status(){
