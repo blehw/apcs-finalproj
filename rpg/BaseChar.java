@@ -13,6 +13,7 @@ public class BaseChar {
     private String weakness;
     private String resistance;
     private String[] moves = new String[4];
+    private int[] PP = new int[4];
     private Random r = new Random();
 
     public BaseChar() {
@@ -52,6 +53,10 @@ public class BaseChar {
 	return attack;
     }
 
+    public String getType() {
+	return type;
+    }
+
     public String getWeakness() {
 	return weakness;
     }
@@ -76,8 +81,20 @@ public class BaseChar {
 	return moves[3];
     }
 
-    public String getType() {
-	return type;
+    public int getPP0() {
+	return PP[0];
+    }
+
+    public int getPP1() {
+	return PP[1];
+    }
+    
+    public int getPP2() {
+	return PP[1];
+    }
+    
+    public int getPP3() {
+	return PP[1];
     }
 
     public void setHealth(int value) {
@@ -94,6 +111,10 @@ public class BaseChar {
 
     public void setAttack(int value) {
 	attack = value;
+    }
+    
+    public void setType(String s) {
+	type = s;
     }
 
     public void setWeakness(String s) {
@@ -122,10 +143,6 @@ public class BaseChar {
 
     public void setMoves3(String move) {
 	 moves[3] = move;
-    }
-
-    public void setType(String s) {
-	type = s;
     }
 
     public String status(){
