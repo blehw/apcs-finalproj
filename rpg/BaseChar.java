@@ -29,6 +29,7 @@ public class BaseChar {
 	setPP1(10);
     }
 
+    
     public String toString() {
 	return name;
     }
@@ -198,6 +199,7 @@ public class BaseChar {
 	String s ="";
 	if (r.nextInt(100) <= 95) {
 	    int newHealth = this.getHealth() + (this.getHealth()/4);
+	    this.setHealth(newHealth);
 	    s = this + " used RECOVER!";
 	} else {
 	    s = this + " used RECOVER! But it failed!"; 

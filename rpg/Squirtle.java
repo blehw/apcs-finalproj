@@ -6,8 +6,8 @@ public class Squirtle extends Water {
 
     public Squirtle() {
 	setName("SQUIRTLE");
-	moves[0] = "TACKLE";
-	moves[1] = "RECOVER";
+	setMoves0("TACKLE");
+	setMoves1("RECOVER");
     }
 
     public String watergun(BaseChar opponent) {
