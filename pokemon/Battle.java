@@ -41,15 +41,15 @@ public class Battle {
 		move = move.toLowerCase();
 		move = move.replaceAll("\\s+","");
 		if (move.equals("tackle")) {
-		    player.tackle(opponent);
+		    System.out.println(player.tackle(opponent));
 		}
 		if (move.equals("recover")) {
-		    player.recover();
+		    System.out.println(player.recover());
 		}
 		turn = false;
 		if(opponent.getHealth() <= 0){
 		    System.out.println("Foe " + opponent + 
-				       "has fainted! You win");
+				       " has fainted! You win");
 		    System.exit(0);
 		    
 		}
@@ -58,15 +58,15 @@ public class Battle {
 	    while(fight && !turn){
 		//dumb opponent's move selection (random)
 		int movesNum = 0;
-		while (moves[movesNum] != null && movesNum != 4){
+		while (opponent.getMoves()[movesNum] != null && movesNum != 4){
 		    movesNum++;
 		}
 		int move = r.nextInt(movesNum);
 		if(move == 0){
-		    opponent.tackle(player);
+		    System.out.println(opponent.(opponent.getMoves0())(player));
 		}
 		if(move == 1){
-		    opponent.recover();
+		    System.out.println(opponent.recover());
 		}
 		if(player.getHealth() <= 0){
 		    System.out.println(player + " has fainted, do you want to send out another pokemon?");

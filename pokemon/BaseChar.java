@@ -12,6 +12,7 @@ public class BaseChar {
     private String type;
     private String weakness;
     private String resistance;
+    private Move[] methods = {new Tackle(), new Recover()};
     private String[] moves = new String[4];
     private int[] PP = new int[4];
     private Random r = new Random();
@@ -28,7 +29,6 @@ public class BaseChar {
 	setPP0(35);
 	setPP1(10);
     }
-
     
     public String toString() {
 	return name;
@@ -68,6 +68,10 @@ public class BaseChar {
 
     public String getResistance() {
 	return resistance;
+    }
+
+    public String[] getMoves() {
+	return moves;
     }
 
     public String getMoves0() {
