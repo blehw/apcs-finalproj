@@ -63,7 +63,7 @@ public class Battle {
 		}
 		int move = r.nextInt(movesNum);
 		if(move == 0){
-		    System.out.println(opponent.(opponent.getMoves0())(player));
+		    System.out.println(opponent.getMoves0());
 		}
 		if(move == 1){
 		    System.out.println(opponent.recover());

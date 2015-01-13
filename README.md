@@ -7,4 +7,5 @@ apcs-finalproj: POKEMON
 - 1/08/15 finished first Pokemon WY GR
 - 1/09/15 began working on a battle sequence WY GR
 - 1/10/15 Worked on battle sequence, found problems with baseChar code GR
+- 1/12/15 Worked on storing moves in array WY
 
