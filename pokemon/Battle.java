@@ -57,10 +57,9 @@ public class Battle {
 	    //*********************THE OPPONENT'S TURN************************
 	    while(fight && !turn){
 		//dumb opponent's move selection (random)
-		int movesNum = 0;
-		while (opponent.getMoves()[movesNum] != null && movesNum != 4){
-		    movesNum++;
-		}
+		String[] movesNum = String[20];
+		String[0] = "TACKLE";
+		String[1] = "RECOVER";
 		int move = r.nextInt(movesNum);
 		if(move == 0){
 		    System.out.println(opponent.getMoves0());
