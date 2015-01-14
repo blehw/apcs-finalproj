@@ -1,4 +1,4 @@
-public class Water extends BaseChar {
+public abstract class Water extends BaseChar {
 
     public Water() {
 	setResistance("Fire");

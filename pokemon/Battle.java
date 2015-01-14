@@ -10,7 +10,6 @@ public class Battle {
 	Scanner scan = new Scanner(System.in);
 	Random r = new Random();
 
-
 	boolean fight = true;
 	boolean turn = true;
 	if(opponent.getSpeed() > player.getSpeed()){   
@@ -21,7 +20,6 @@ public class Battle {
 	//BASIC fight sequence 
 	
 	while (fight){
-	    
 
 	    //opponents stats
 	    System.out.println("Foe " + opponent.status() + "\n");
@@ -57,14 +55,13 @@ public class Battle {
 	    //*********************THE OPPONENT'S TURN************************
 	    while(fight && !turn){
 		//dumb opponent's move selection (random)
-		String[] movesNum = String[20];
-		String[0] = "TACKLE";
-		String[1] = "RECOVER";
-		int move = r.nextInt(movesNum);
-		if(move == 0){
-		    System.out.println(opponent.getMoves0());
+		String[] moves = opponent.getMoves();
+		int rand = r.nextInt(opponent.nummoves());
+		String move = moves[rand];
+		if (move == "TACKLE") {
+		    System.out.println(opponent.tackle(player));
 		}
-		if(move == 1){
+		if (move == "RECOVER") {
 		    System.out.println(opponent.recover());
 		}
 		if(player.getHealth() <= 0){
