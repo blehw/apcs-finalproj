@@ -1,4 +1,4 @@
-public class Fire extends BaseChar {
+public abstract class Fire extends BaseChar {
 
     public Fire() {
 	setType("Fire");

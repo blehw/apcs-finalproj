@@ -1,9 +1,10 @@
 import java.util.*;
 
-public class BaseChar {
+public abstract class BaseChar {
 
     private int level;
     private int experience;
+    private int maxhealth;
     private int health;
     private int speed;
     private int defense;
@@ -19,14 +20,15 @@ public class BaseChar {
     public BaseChar() {
 	level = 1;
 	experience = 0;
+	maxhealth = 20;
 	health = 20;
 	speed = r.nextInt(5)+5;
 	defense = r.nextInt(5)+5;
 	attack = r.nextInt(5)+5;
-	setMoves0("TACKLE");
-	setMoves1("RECOVER");
-	setPP0(35);
-	setPP1(10);
+	setMove(0,"TACKLE");
+	setMove(1,"RECOVER");
+	setPP(0,35);
+	setPP(1,10);
     }
 
     public String toString() {
@@ -39,6 +41,10 @@ public class BaseChar {
 
     public int getExperience() {
 	return experience;
+    }
+
+    public int getMaxHealth() {
+	return maxhealth;
     }
     
     public int getHealth() {
@@ -69,36 +75,12 @@ public class BaseChar {
 	return resistance;
     }
 
-    public String getMoves0() {
-	return moves[0];
+    public String[] getMoves() {
+	return moves;
     }
 
-    public String getMoves1() {
-	return moves[1];
-    }
-    
-    public String getMoves2() {
-	return moves[2];
-    }
-
-    public String getMoves3() {
-	return moves[3];
-    }
-
-    public int getPP0() {
-	return PP[0];
-    }
-
-    public int getPP1() {
-	return PP[1];
-    }
-    
-    public int getPP2() {
-	return PP[1];
-    }
-    
-    public int getPP3() {
-	return PP[1];
+    public int[] getPP() {
+	return PP;
     }
 
     public void setHealth(int value) {
@@ -133,36 +115,12 @@ public class BaseChar {
 	name = s;
     }
 
-    public void setMoves0(String move) {
-	moves[0] = move;
+    public void setMove(int pos, String move) {
+	moves[pos] = move;
     }
 
-    public void setMoves1(String move) {
-	 moves[1] = move;
-    }
-
-    public void setMoves2(String move) {
-	 moves[2] = move;
-    }
-
-    public void setMoves3(String move) {
-	 moves[3] = move;
-    }
-
-    public void setPP0(int n) {
-	 PP[0] = n;
-    }
-
-    public void setPP1(int n) {
-	PP[1] = n;
-    }
-
-    public void setPP2(int n) {
-	PP[2] = n;
-    }
-
-    public void setPP3(int n) {
-	PP[3] = n;
+    public void setPP(int pos, int n) {
+	 PP[pos] = n;
     }
 
     public String status(){
@@ -181,26 +139,56 @@ public class BaseChar {
     }
 
     public String tackle(BaseChar opponent) {
+	//locating PP to attack
+	int n = 0;
+	while (n < this.nummoves() && moves[n] != "TACKLE") {
+	    n = n + 1;
+	}
+	//the attack
 	String s ="";
-	if (r.nextInt(100) <= 95) {
+	if (r.nextInt(100) <= 95 && this.getPP()[n] > 0) {
 	    int newHealth = opponent.getHealth() - damage(opponent,50);;
 	    opponent.setHealth(newHealth);
 	    s = this + " used TACKLE!";
-	    
 	} else {
-	    s = this + " used TACKLE! But it missed!";
+	    if (this.getPP()[n] == 0) {
+		s = this + " has no more PP for TACKLE!";
+	    } else {
+		s = this + " used TACKLE! But it missed!";
+	    }
 	}
-	
+	//subtracting PP
+	if (this.getPP()[n] > 0) {
+	    int newPP = this.getPP()[n] - 1;
+	    this.setPP(n,newPP);
+	}
 	return s;
     }
 
     public String recover() {
+	//locating PP to attack
+	int n = 0;
+	while (n < this.nummoves() && moves[n] != "RECOVER") {
+	    n = n + 1;
+	}
+	//the attack
 	String s ="";
-	if (r.nextInt(100) <= 95) {
+	if (r.nextInt(100) <= 95 && this.getPP()[n] > 0 &&
+	    (this.getHealth() + (this.getHealth()/4)) <= this.getMaxHealth()) {
 	    int newHealth = this.getHealth() + (this.getHealth()/4);
+	    this.setHealth(newHealth);
 	    s = this + " used RECOVER!";
 	} else {
-	    s = this + " used RECOVER! But it failed!"; 
+	    if (this.getPP()[n] == 0) {
+		s = this + " has no more PP for RECOVER!";
+	    } else {
+		s = this + " used RECOVER! But it failed!";
+	    }
+	}
+	//subtracting PP
+	if (this.getPP()[n] > 0) {
+	    int newPP = this.getPP()[n] - 1;
+	    this.setPP(n,newPP);
 	}
 	return s;
     }
@@ -214,6 +202,17 @@ public class BaseChar {
 	    s = s + "\n" + moves[3] + PP[3];
 	}
 	return s;	    
+    }
+
+    public int nummoves() {
+	int n = 2;
+	if (moves[2] != null) {
+	    n = n + 1;
+	}
+	if (moves[3] != null) {
+	    n = n + 1;
+	}
+	return n;
     }
 	
     
