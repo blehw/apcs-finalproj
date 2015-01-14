@@ -6,8 +6,6 @@ public class Charmander extends Fire {
 
     public Charmander() {
 	setName("CHARMANDER");
-	setMoves0("TACKLE");
-	setMoves1("RECOVER");
     }
 
      public String ember(BaseChar opponent) {
@@ -18,6 +16,9 @@ public class Charmander extends Fire {
 	}
 	if (opponent.getResistance() == "Fire") {
 	    modifier = modifier/2;
+	}
+	if (getType() == "Fire") {
+	    modifier = modifier + (modifier/2);
 	}
 	if (r.nextInt(100) <= 100) {
 	    int newHealth = opponent.getHealth() -
