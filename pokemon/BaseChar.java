@@ -139,16 +139,9 @@ public abstract class BaseChar {
     }
 
     public int damage(BaseChar opponent, int base) {
-	int modifier = 1;
-	int rand = r.nextInt(10);
-	if (rand == 0) {
-	    modifier = modifier * 2;
-	    System.out.println("It's a critical hit!");
-	}
-
-	return (((((2* this.getLevel() + 10)/250) *
+	return ((((2* this.getLevel() + 10)/250) *
 		(this.getAttack()/opponent.getDefense()) *
-		 base) + 2) * modifier);
+		 base) + 2);
     }
 
     public String tackle(BaseChar opponent) {
@@ -160,9 +153,19 @@ public abstract class BaseChar {
 	//the attack
 	String s ="";
 	if (r.nextInt(100) <= 95 && this.getPP()[n] > 0) {
-	    int newHealth = opponent.getHealth() - damage(opponent,50);;
+	    int modifier = 1;
+	    int crit = r.nextInt(10);
+	    if (crit == 0) {
+		modifier = modifier * 2;
+	    }
+	    int newHealth = opponent.getHealth() -
+		(damage(opponent,50) * modifier);;
 	    opponent.setHealth(newHealth);
 	    s = this + " used TACKLE!";
+	    if (crit == 0) {
+		modifier = modifier * 2;
+		s = s + "\nIt's a critical hit!";
+	    }
 	} else {
 	    if (this.getPP()[n] == 0) {
 		s = this + " has no more PP for TACKLE!";
