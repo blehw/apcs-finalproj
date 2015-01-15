@@ -26,9 +26,7 @@ public abstract class BaseChar {
 	defense = r.nextInt(5)+5;
 	attack = r.nextInt(5)+5;
 	setMove(0,"TACKLE");
-	setMove(1,"RECOVER");
 	setPP(0,35);
-	setPP(1,10);
     }
 
     public String toString() {
@@ -83,6 +81,14 @@ public abstract class BaseChar {
 	return PP;
     }
 
+    public void setLevel(int value) {
+	level = value;
+    }
+
+    public void setExperience(int value) {
+	experience = value;
+    }
+
     public void setHealth(int value) {
 	health = value;
     }
@@ -133,9 +139,16 @@ public abstract class BaseChar {
     }
 
     public int damage(BaseChar opponent, int base) {
-	return ((((2* this.getLevel() + 10)/250) *
+	int modifier = 1;
+	int rand = r.nextInt(10);
+	if (rand == 0) {
+	    modifier = modifier * 2;
+	    System.out.println("It's a critical hit!");
+	}
+
+	return (((((2* this.getLevel() + 10)/250) *
 		(this.getAttack()/opponent.getDefense()) *
-		 base) + 2);
+		 base) + 2) * modifier);
     }
 
     public String tackle(BaseChar opponent) {
@@ -165,6 +178,7 @@ public abstract class BaseChar {
 	return s;
     }
 
+    /*
     public String recover() {
 	//locating PP to attack
 	int n = 0;
@@ -192,9 +206,13 @@ public abstract class BaseChar {
 	}
 	return s;
     }
+    */
 
     public String moveset() {
-	String s = moves[0] + "  " + PP[0] + "\n" + moves[1] + "  " + PP[1];
+	String s = moves[0] + "  " + PP[0] + "\n";
+	if (moves[1] != null) {
+	    s = s + "\n" + moves[1] + PP[1];
+	}
 	if (moves[2] != null) {
 	    s = s + "\n" + moves[2] + PP[2];
 	}
@@ -205,7 +223,10 @@ public abstract class BaseChar {
     }
 
     public int nummoves() {
-	int n = 2;
+	int n = 1;
+	if (moves[1] != null) {
+	    n = n + 1;
+	}
 	if (moves[2] != null) {
 	    n = n + 1;
 	}

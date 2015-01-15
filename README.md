@@ -8,4 +8,6 @@ apcs-finalproj: POKEMON
 - 1/09/15 began working on a battle sequence WY GR
 - 1/10/15 Worked on battle sequence, found problems with baseChar code GR
 - 1/12/15 Worked on storing moves in array WY
+- 1/13/15 Worked on opponent moves WY
+- 1/14/15 Worked on PP system WY
 
