@@ -2,11 +2,14 @@ public class Driver {
     
     public static void main(String[] args) {
 
-	Squirtle s = new Squirtle();
-	Charmander c = new Charmander();
-	Battle routine = new Battle();
-	System.out.println(routine.battle(s,c));
+	Player player = new Player();
+	Scanner scan = new Scanner(System.in);Scanner scan = new Scanner(System.in);	
 
+	//intro courtesy of http://www.supercheats.com/gameboy/walkthroughs/pokemonred-walkthrough09.txt
+	System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
+	System.out.println("This world is inhabited by creatures called POKEMON! For some people, POKEMON are pets. Others use them for fights. Myself...I study POKEMON as a profession.");
+	System.out.println("First, what is your name?");
+			   
 	
     }
     
