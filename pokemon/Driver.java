@@ -6,6 +6,7 @@ public class Driver implements Serializable {
     public static void main(String[] args) {
 
 	Player player = new Player();
+	HomeTown hometown = new HomeTown();
 	Player rival = new Player();
 	Scanner scan = new Scanner(System.in);
 
@@ -32,6 +33,7 @@ public class Driver implements Serializable {
 	rival.setName(rname);
 	System.out.println("That's right! I remember now! His name is " + rival + "!");
 	System.out.println(player + "! Your very own POKEMON legend is about to unfold! A world of dreams and adventures with POKEMON awaits! Let's go!");
+	System.out.println(hometown.routine(player,rival));
 	
 			   
 	
