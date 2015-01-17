@@ -13,3 +13,4 @@ apcs-finalproj: POKEMON
 - 1/14/15 Worked on PP system and battle/leveling up system WY
 - 1/15/15 Finished working on player (character) GR
 - 1/15/15 Finished battle/leveling up system and started on the Driver WY
+- 1/17/15 Worked on HomeTown WY
