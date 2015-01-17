@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Player {
+public class Player implements Serializable {
 
     private BaseChar[] pokemon = new BaseChar[6];
     private int location;

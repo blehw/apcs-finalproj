@@ -1,13 +1,23 @@
 import java.util.*;
 import java.io.*;
 
-public class Driver {
-    
+public class Driver implements Serializable {
+        
     public static void main(String[] args) {
 
 	Player player = new Player();
 	Player rival = new Player();
 	Scanner scan = new Scanner(System.in);
+
+	if (scan.nextLine() == "SAVE") {
+	    try {
+	    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("save.dat"));
+	    oos.writeObject(player);
+	    oos.close();
+	} catch(Exception ex) {
+	    ex.printStackTrace();
+	    }
+	}    
 
 	//intro courtesy of http://www.supercheats.com/gameboy/walkthroughs/pokemonred-walkthrough09.txt
 	System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");

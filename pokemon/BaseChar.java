@@ -1,6 +1,7 @@
+import java.io.*;
 import java.util.*;
 
-public abstract class BaseChar {
+public abstract class BaseChar implements Serializable {
 
     private int level;
     private int experience;
