@@ -11,7 +11,7 @@ public class Route1 {
 
     public String routine(Player player) {
 	player.setLocation("Route 1");
-	while (meters != 1000) {
+	while (meters < 1000) {
 	    System.out.println("Do you want to WALK FORWARD (to PEWTER CITY) or WALK BACKWARDS (to PALLET TOWN)?");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
@@ -27,6 +27,7 @@ public class Route1 {
 	    }
 	}
 	System.out.println("You have reached PEWTER CITY.");
+	System.exit(0);
 	return "";
     }
 }

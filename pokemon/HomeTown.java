@@ -4,7 +4,7 @@ import java.util.*;
 public class HomeTown {
 
     private String s; 
-    private Battle battle = new Battle();;
+    private Battle battle = new Battle();
     Scanner scan = new Scanner(System.in);
 
     public String go(Player player, Player rival) {
@@ -86,6 +86,16 @@ public class HomeTown {
 			Squirtle squirtle = new Squirtle();
 			player.setPokemon(squirtle,0);
 			System.out.println(rival + ": I'll take this one then!");
+			try {
+			    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("save.dat"));
+			    oos.writeObject(player);
+			    oos.close();
+			    System.out.println("GAME SAVED");
+			    System.exit(0);
+			} catch(Exception ex) {
+			    ex.printStackTrace();
+			}
+			
 		        Bulbasaur bulbasaur = new Bulbasaur();
 			rival.setPokemon(bulbasaur,0);
 			leave(player,rival);
