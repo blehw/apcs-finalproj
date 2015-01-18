@@ -9,19 +9,22 @@ public class Route1 {
     private String s;
 
     public String routine(Scanner scan,  Player player) {
-	System.out.println("Do you want to WALK FORWARD (to PEWTER CITY) or WALK BACKWARDS (to PALLET TOWN)?");
-	s = scan.nextLine();
-	s = s.toLowerCase();
-	if (s.equals("walk forward")) {
-	    meters =  meters 100;
-	    System.out.println("You have walked " + meters + " meters.");
-	    int rand = r.nextInt(2);
-	    if (rand == 0) {
-		Rattata rattata = new Rattata();
-		battle.routine(player.getPokemon()[0],rattata);	    
+	while (meters != 1000) {
+	    System.out.println("Do you want to WALK FORWARD (to PEWTER CITY) or WALK BACKWARDS (to PALLET TOWN)?");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("walk forward")) {
+		meters =  meters + 100;
+		System.out.println("You walked 100  meters.");
+		System.out.println("You are " + meters + " meters from PALLET TOWN. You are " + (1000 - meters) + " meters from PEWTER CITY");
+		int rand = r.nextInt(4);
+		if (rand == 0) {
+		    Rattata rattata = new Rattata();
+		    battle.wildRoutine(player,rattata);	    
+		}
 	    }
 	}
+	System.out.println("You have reached PEWTER CITY.");
 	return "";
     }
-    
 }

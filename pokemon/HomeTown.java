@@ -99,7 +99,7 @@ public class HomeTown {
 
     public String leave(Scanner scan, Player player, Player rival) {
 	System.out.println(rival + ": Let's check out our POKEMON, " + player + "! Come on, I'll take you on!");
-	System.out.println(battle.routine(player.getPokemon()[0],rival.getPokemon()[0]));
+	System.out.println(battle.trainerRoutine(player,rival));
 	if (player.getPokemon()[0].getHealth() == 0) {
 	    System.out.print(rival + ": Yeah! I won!");
 	} else {
@@ -116,6 +116,10 @@ public class HomeTown {
 	for (int i=0;i<player.getPokemon().length &&
 		 player.getPokemon()[i] != null;i++) {
 	    player.getPokemon()[i].setHealth(player.getPokemon()[i].getMaxHealth());
+	    for (int k=0;i<player.getPokemon()[k].getMaxPP().length &&
+		     player.getPokemon()[k].getMaxPP() != null;i++) {
+		player.getPokemon()[k].setPP(k,player.getPokemon()[k].getMaxPP()[k]);
+	    }
 	}
 	System.out.println("MOM: There you go. All rested up.");
 	walk(scan,player,"home");

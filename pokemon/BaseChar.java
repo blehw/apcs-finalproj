@@ -18,6 +18,7 @@ public abstract class BaseChar implements Serializable {
     private String weakness;
     private String resistance;
     private String[] moves = new String[4];
+    private int[] maxPP = new int[4];
     private int[] PP = new int[4];
     private Random r = new Random();
 
@@ -33,7 +34,8 @@ public abstract class BaseChar implements Serializable {
 	maxattack = r.nextInt(5)+5;
 	attack = maxattack;
 	setMove(0,"TACKLE");
-	setPP(0,35);
+	setMaxPP(0,35);
+	setPP(0,getMaxPP()[0]);
     }
 
     public String toString() {
@@ -94,6 +96,10 @@ public abstract class BaseChar implements Serializable {
 
     public String[] getMoves() {
 	return moves;
+    }
+
+    public int[] getMaxPP() {
+	return maxPP;
     }
 
     public int[] getPP() {
@@ -158,6 +164,10 @@ public abstract class BaseChar implements Serializable {
 
     public void setMove(int pos, String move) {
 	moves[pos] = move;
+    }
+
+    public void setMaxPP(int pos, int n) {
+	maxPP[pos] = n;
     }
 
     public void setPP(int pos, int n) {
@@ -247,15 +257,15 @@ public abstract class BaseChar implements Serializable {
     */
 
     public String moveset() {
-	String s = moves[0] + "  " + PP[0] + "\n";
+	String s = moves[0] + " " + PP[0] + "/" + maxPP[0] + "\n";
 	if (moves[1] != null) {
-	    s = s + "\n" + moves[1] + PP[1];
+	    s = s + "\n" + moves[1] + " " + PP[1] + "/" + maxPP[1];
 	}
 	if (moves[2] != null) {
-	    s = s + "\n" + moves[2] + PP[2];
+	    s = s + "\n" + moves[2] + " " + PP[2] + "/" + maxPP[2];
 	}
 	if (moves[3] != null) {
-	    s = s + "\n" + moves[3] + PP[3];
+	    s = s + "\n" + moves[3] + " " + PP[3] + "/" + maxPP[3];
 	}
 	return s;	    
     }
