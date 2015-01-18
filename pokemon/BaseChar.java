@@ -193,6 +193,7 @@ public abstract class BaseChar implements Serializable {
 	//locating PP to attack
 	int n = 0;
 	while (n < this.nummoves() && moves[n] != "TACKLE") {
+	    System.out.println(moves[n]);
 	    n = n + 1;
 	}
 	//the attack
