@@ -85,17 +85,7 @@ public class HomeTown {
 			System.out.println("OAK: Alright then!");
 			Squirtle squirtle = new Squirtle();
 			player.setPokemon(squirtle,0);
-			System.out.println(rival + ": I'll take this one then!");
-			try {
-			    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("save.dat"));
-			    oos.writeObject(player);
-			    oos.close();
-			    System.out.println("GAME SAVED");
-			    System.exit(0);
-			} catch(Exception ex) {
-			    ex.printStackTrace();
-			}
-			
+			System.out.println(rival + ": I'll take this one then!");	
 		        Bulbasaur bulbasaur = new Bulbasaur();
 			rival.setPokemon(bulbasaur,0);
 			leave(player,rival);
@@ -117,7 +107,9 @@ public class HomeTown {
 	    System.out.print(rival + ": Aw, I lost.");
 	}
 	System.out.println(" Alright, I'll keep training with my POKEMON to get better. " + player + "! Gramps! See you later!");
-	System.out.println("OAK: " + player + ", raise your POKEMON by training them! You can even catch POKEMON if you buy some POKEBALLS!");
+	System.out.println("OAK: " + player + ", raise your POKEMON by training them! You can check on them at any time by typing 'POKEMON'.");
+	System.out.println("GOD-LIKE VOICE: And you can exit the game by typing 'EXIT GAME'.");
+	System.out.println("OAK: Hmm, did you hear something, " + player + "?");
         walk(player,"prof. oak's lab");
 	return "";
     }
@@ -146,7 +138,7 @@ public class HomeTown {
     public String walk(Player player, String source) {
 	if (source.equals("home")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("PROF. OAK'S LAB   PEWTER CITY");
+	    System.out.println("PROF. OAK'S LAB   PEWTER CITY   SAVE");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("prof. oak's lab")) {
@@ -155,6 +147,24 @@ public class HomeTown {
 	    if (s.equals("pewter city")) {
 		Route1 route1 = new Route1();
 		route1.routine(player);
+	    } 
+	    if (s.equals("pokemon")) {
+		System.out.println(player.getPokemonStatus());
+		walk(player,source);
+	    }
+	    if (s.equals("save")) {
+		try {
+		    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("save.dat"));
+		    oos.writeObject(player);
+		    oos.close();
+		    System.out.println("GAME SAVED");
+		    walk(player,source);
+		} catch(Exception ex) {
+		    ex.printStackTrace();
+		}
+	    } 
+	    if (s.equals("exit game")) {
+		System.exit(0);
 	    } else {
 		System.out.println("You can't go there!");
 		walk(player,source);
@@ -176,6 +186,13 @@ public class HomeTown {
 		    System.out.println("Your POKEMON has no health left! Go home to rest up first.");
 		    walk(player,source);
 		}
+	    } 
+	    if (s.equals("pokemon")) {
+		System.out.println(player.getPokemonStatus());
+		walk(player,source);
+	    } 
+	    if (s.equals("exit game")) {
+		System.exit(0);
 	    } else {
 		System.out.println("You can't go there!");
 		walk(player,source);

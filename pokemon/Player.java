@@ -27,6 +27,14 @@ public class Player implements Serializable {
     public BaseChar[] getPokemon(){
 	return pokemon;
     }
+
+    public String getPokemonStatus() {
+	String s = "";
+	for (int i=0;i<pokemon.length && pokemon[i] != null;i++) {
+	    s += pokemon[i].status();
+	}
+	return s;
+    }
     
     public String[] getBadges(){
 	return badges;
