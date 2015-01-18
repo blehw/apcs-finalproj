@@ -192,9 +192,14 @@ public abstract class BaseChar implements Serializable {
     public String tackle(BaseChar opponent) {
 	//locating PP to attack
 	int n = 0;
+	System.out.println(this.nummoves());
+	System.out.println(moves[n]);
 	while (n < this.nummoves() && moves[n] != "TACKLE") {
+	    System.out.println(this.nummoves());
 	    System.out.println(moves[n]);
 	    n = n + 1;
+	    System.out.println(this.nummoves());
+	    System.out.println(moves[n]);
 	}
 	//the attack
 	String s ="";

@@ -137,6 +137,7 @@ public class HomeTown {
 
     public String walk(Player player, String source) {
 	if (source.equals("home")) {
+	    player.setLocation("Pallet Town");
 	    System.out.println("Where do you want to go?");
 	    System.out.println("PROF. OAK'S LAB   PEWTER CITY   SAVE");
 	    s = scan.nextLine();
