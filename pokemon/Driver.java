@@ -7,6 +7,7 @@ public class Driver implements Serializable {
 
 	Player player = new Player();
 	HomeTown hometown = new HomeTown();
+	Route1 route1 = new Route1();
 	Player rival = new Player();
 	Scanner scan = new Scanner(System.in);
 

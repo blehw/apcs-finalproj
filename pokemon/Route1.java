@@ -2,13 +2,15 @@ import java.util.*;
 import java.io.*;
 
 public class Route1 {
-    
+   
+    private Scanner scan = new Scanner(System.in);
     private Random r = new Random();
     private Battle battle = new Battle();
     private int meters = 0;
     private String s;
 
-    public String routine(Scanner scan,  Player player) {
+    public String routine(Player player) {
+	player.setLocation("Route 1");
 	while (meters != 1000) {
 	    System.out.println("Do you want to WALK FORWARD (to PEWTER CITY) or WALK BACKWARDS (to PALLET TOWN)?");
 	    s = scan.nextLine();
