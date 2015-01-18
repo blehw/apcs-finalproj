@@ -7,8 +7,11 @@ public abstract class BaseChar implements Serializable {
     private int experience;
     private int maxhealth;
     private int health;
+    private int maxspeed;
     private int speed;
+    private int maxdefense;
     private int defense;
+    private int maxattack;
     private int attack;
     private String name;
     private String type;
@@ -22,10 +25,13 @@ public abstract class BaseChar implements Serializable {
 	level = 1;
 	experience = 0;
 	maxhealth = 20;
-	health = 20;
-	speed = r.nextInt(5)+5;
-	defense = r.nextInt(5)+5;
-	attack = r.nextInt(5)+5;
+	health = maxhealth;
+	maxspeed = r.nextInt(5)+5;
+	speed = maxspeed;
+	maxdefense = r.nextInt(5)+5;
+	defense = maxdefense;
+	maxattack = r.nextInt(5)+5;
+	attack = maxattack;
 	setMove(0,"TACKLE");
 	setPP(0,35);
     }
@@ -50,12 +56,24 @@ public abstract class BaseChar implements Serializable {
 	return health;
     }
 
+    public int getMaxSpeed() {
+	return maxspeed;
+    }
+
     public int getSpeed() {
 	return speed;
     }
 
+    public int getMaxDefense() {
+	return maxdefense;
+    }
+
     public int getDefense() {
 	return defense;
+    }
+
+    public int getMaxAttack() {
+	return maxattack;
     }
 
     public int getAttack() {
@@ -90,16 +108,32 @@ public abstract class BaseChar implements Serializable {
 	experience = value;
     }
 
-    public void setHealth(int value) {
-	health = value;
+    public void setMaxSpeed(int value) {
+	maxspeed = value;
     }
 
     public void setSpeed(int value) {
 	speed = value;
     }
 
+    public void setMaxHealth(int value) {
+	maxhealth = value;
+    }
+
+    public void setHealth(int value) {
+	health = value;
+    }
+
+    public void setMaxDefense(int value) {
+	maxdefense = value;
+    }
+
     public void setDefense(int value) {
 	defense = value;
+    }
+
+    public void setMaxAttack(int value) {
+	maxattack = value;
     }
 
     public void setAttack(int value) {

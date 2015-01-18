@@ -101,61 +101,65 @@ public class HomeTown {
 	System.out.println(rival + ": Let's check out our POKEMON, " + player + "! Come on, I'll take you on!");
 	System.out.println(battle.routine(player.getPokemon()[0],rival.getPokemon()[0]));
 	if (player.getPokemon()[0].getHealth() == 0) {
-	    System.out.println(rival + ": Yeah! I won!");
+	    System.out.print(rival + ": Yeah! I won!");
 	} else {
-	    System.out.println(rival + ": Aw, I lost.");
+	    System.out.print(rival + ": Aw, I lost.");
 	}
-	System.out.print(" Alright, I'll keep training with my POKEMON to get better. " + player + "! Gramps! See you later!");
+	System.out.println(" Alright, I'll keep training with my POKEMON to get better. " + player + "! Gramps! See you later!");
 	System.out.println("OAK: " + player + ", raise your POKEMON by training them! You can even catch POKEMON if you buy some POKEBALLS!");
-	System.out.println("Where do you want to go?");
-	System.out.println("HOME   PEWTER CITY");
-	s = scan.nextLine();
-	s = s.toLowerCase();
-	if (s.equals("home")) {
-	    home(scan,player);
-	}
-	if (s.equals("pewter city")) {
-	    
-	} else {
-	    System.out.println("You can't go there!");
-	}
+        walk(scan,player,"prof. oak's lab");
 	return "";
     }
 
     public String home(Scanner scan, Player player) {
 	System.out.println("MOM: Hello, dear. You look tired. Why don't you take a rest?");
-	for (int i=0;i<player.getPokemon().length;i++) {
+	for (int i=0;i<player.getPokemon().length &&
+		 player.getPokemon()[i] != null;i++) {
 	    player.getPokemon()[i].setHealth(player.getPokemon()[i].getMaxHealth());
 	}
 	System.out.println("MOM: There you go. All rested up.");
-	System.out.println("Where do you want to go?");
-	System.out.println("PROF. OAK'S LAB   PWETER CITY");
-	s = scan.nextLine();
-	s = s.toLowerCase();
-	if (s.equals("prof. oak's lab")) {
-	    lab(scan,player);
-	} 
-	if (s.equals("pewter city")) {
-	    
-	} else {
-	    System.out.println("You can't go there!");
-	}
+	walk(scan,player,"home");
 	return "";
     }
 
     public String lab(Scanner scan, Player player) {
 	System.out.println("OAK: Hello, " + player + ". I see your " + player.getPokemon()[0] + " is getting stronger. I wish you the best of luck in your journey!");
-	System.out.println("Where do you want to go?");
-	System.out.println("HOME   PEWTER CITY");
-	s = scan.nextLine();
-	s = s.toLowerCase();
-	if (s.equals("home")) {
-	    home(scan,player);
+	walk(scan,player,"prof. oak's lab");
+	return "";
+    }
+
+    public String walk(Scanner scan, Player player, String source) {
+	if (source.equals("home")) {
+	    System.out.println("Where do you want to go?");
+	    System.out.println("PROF. OAK'S LAB   PEWTER CITY");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("prof. oak's lab")) {
+		lab(scan,player);
+	    } 
+	    if (s.equals("pewter city")) {
+		Route1 route1 = new Route1();
+		route1.routine(scan,player);
+	    } else {
+		System.out.println("You can't go there!");
+		walk(scan,player,source);
+	    }
 	}
-	if (s.equals("pewter city")) {
-	    
-	} else {
-	    System.out.println("You can't go there!");
+	if (source.equals("prof. oak's lab")) {
+	    System.out.println("Where do you want to go?");
+	    System.out.println("HOME   PEWTER CITY");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("home")) {
+		home(scan,player);
+	    }
+	    if (s.equals("pewter city")) {
+		Route1 route1 = new Route1();
+		route1.routine(scan,player);
+	    } else {
+		System.out.println("You can't go there!");
+		walk(scan,player,source);
+	    }
 	}
 	return "";
     }

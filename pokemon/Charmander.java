@@ -8,7 +8,7 @@ public class Charmander extends Fire {
 	setName("CHARMANDER");
     }
 
-     public String ember(BaseChar opponent) {
+    public String ember(BaseChar opponent) {
 	String s = "";
 	int modifier = 1;
 	if (opponent.getWeakness() == "Fire") {

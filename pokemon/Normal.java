@@ -1,6 +1,7 @@
-public class Normal extends BaseChar {
+public abstract class Normal extends BaseChar {
 
     public Normal() {
-
+	setType("Normal");
     }
+
 }
