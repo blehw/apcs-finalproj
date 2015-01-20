@@ -204,8 +204,6 @@ public class HomeTown {
 	
     public String routine(Player player, Player rival) {
 
-	Scanner scan = new Scanner(System.in);
-
 	System.out.println("MOM: Good morning, " + player + ". Well, all children leave home some day. It said so on TV. PROF.OAK, next door, is looking for you.");
 	System.out.println(go(player,rival));
 	
