@@ -20,7 +20,7 @@ public class Route1 {
 	}
 	if (s.equals("walk forward")) {
 	    meters =  meters + 100;
-	    System.out.println("You walked 100  meters.");
+	    System.out.println("You walked 100 meters.");
 	    if (meters >= 1000) {
 		PewterCity pewtercity = new PewterCity();
 		pewtercity.routine(player);
@@ -47,6 +47,9 @@ public class Route1 {
 		Rattata rattata = new Rattata();
 		battle.wildRoutine(player,rattata);	    
 	    }
+	    routine(player);
+	} else {
+	    System.out.println("You can't walk in a " + s + " direction!");
 	    routine(player);
 	}
 	return "";
