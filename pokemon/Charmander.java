@@ -28,5 +28,12 @@ public class Charmander extends Fire {
 	}
 	return s;
     }
+    
+    public void learnEmber(){
+	if (getLevel() == 2){
+	    this.setMove( 1, "EMBER");
+	}
+    }
+    
 	 
 }
