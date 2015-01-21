@@ -188,32 +188,44 @@ public abstract class BaseChar implements Serializable {
 	    /(250 * defense * 100) + 2;
     }
 
-    public String tackle(BaseChar opponent) {
+    public String moveMaker(BaseChar opponent, String move, 
+			    String type, int acc) {
 	//locating PP to attack
 	int n = 0;
-	while (n < this.nummoves() && !moves[n].equals("TACKLE")) {
+	while (n < this.nummoves() && !moves[n].equals(move)) {
 	    n = n + 1;
 	}
 	//the attack
 	String s ="";
-	if (r.nextInt(100) <= 95 && this.getPP()[n] > 0) {
+	if (r.nextInt(100) <= acc && this.getPP()[n] > 0) {
 	    int modifier = 1;
 	    int crit = r.nextInt(10);
 	    if (crit == 0) {
 		modifier = modifier * 2;
 	    }
+	    if (opponent.getWeakness().equals(type)) {
+		modifier = modifier * 2;
+	    }
 	    int newHealth = opponent.getHealth() -
-		(damage(opponent,50) * modifier);;
+		(damage(opponent,50) * modifier);
+	    if (opponent.getResistance().equals(type)) {
+		newHealth = opponent.getHealth() -
+		    (damage(opponent,50) * modifier/2);
+	    }
+	    if (this.getType().equals(type)) {
+		newHealth = opponent.getHealth() -
+		    (damage(opponent,50) * modifier * 3/2);
+	    }
 	    opponent.setHealth(newHealth);
-	    s = this + " used TACKLE!";
+	    s = this + " used " + move + "!";
 	    if (crit == 0) {
 		s = s + "\nIt's a critical hit!";
 	    }
 	} else {
 	    if (this.getPP()[n] == 0) {
-		s = this + " has no more PP for TACKLE!";
+		s = this + " has no more PP for " + move + "!";
 	    } else {
-		s = this + " used TACKLE! But it missed!";
+		s = this + " used " + move + "! But it missed!";
 	    }
 	}
 	//subtracting PP
@@ -222,6 +234,10 @@ public abstract class BaseChar implements Serializable {
 	    this.setPP(n,newPP);
 	}
 	return s;
+    }
+
+    public String tackle(BaseChar opponent) {
+	return moveMaker(opponent,"TACKLE","Normal",95);
     }
 
     /*
