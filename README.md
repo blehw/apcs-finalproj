@@ -15,3 +15,4 @@ apcs-finalproj: POKEMON
 - 1/15/15 Finished battle/leveling up system and started on the Driver WY
 - 1/17/15 Finished most of HomeTown and worked on Route1 WY
 - 1/18/15 Worked on Battle routine; what happens when you win/lose, finished save system WY
+- 1/19/15 Worked on Pewter City, taught Pokemon how to learn moves, fixed problems with damage and attack WY
