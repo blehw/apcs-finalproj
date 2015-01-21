@@ -10,7 +10,7 @@ public class PewterCity {
     public String routine(Player player) {
 	player.setLocation("Pewter City");	
 	System.out.println("You have reached PEWTER CITY");
-	
+	pokemoncenter(player);
 	return "";
     }
 
@@ -34,6 +34,7 @@ public class PewterCity {
 	    System.out.println("Where do you want to go?");
 	    System.out.println("BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY   SAVE");
 	}
+	return "";
     }
 
 }

@@ -39,7 +39,7 @@ public class Route1 {
 	    if (meters <= 0) {
 		System.out.println("You have reached PALLET TOWN.");
 		HomeTown hometown = new HomeTown();
-		hometown.walk(player,"home");
+		hometown.walk(player,"street");
 	    }
 	    System.out.println("You are " + meters + " meters from PALLET TOWN. You are " + (1000 -meters) + " from PEWTER CITY");
 	    int rand = r.nextInt(4);
@@ -48,6 +48,13 @@ public class Route1 {
 		battle.wildRoutine(player,rattata);	    
 	    }
 	    routine(player);
+	} 
+	if (s.equals("pokemon")) {
+	    System.out.println(player.getPokemonStatus());
+	    routine(player);
+	} 
+	if (s.equals("exit game")) {
+		System.exit(0);
 	} else {
 	    System.out.println("You can't walk in a " + s + " direction!");
 	    routine(player);

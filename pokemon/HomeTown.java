@@ -136,8 +136,34 @@ public class HomeTown {
     }
 
     public String walk(Player player, String source) {
-	if (source.equals("home")) {
+	if (source.equals("street")) {
 	    player.setLocation("Pallet Town");
+	    System.out.println("Where do you want to go?");
+	    System.out.println("HOME   PROF. OAK'S LAB   PEWTER CITY");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("home")) {
+		home(player);
+	    }
+	    if (s.equals("prof. oak's lab")) {
+		lab(player);
+	    } 
+	    if (s.equals("pewter city")) {
+		Route1 route1 = new Route1();
+		route1.routine(player);
+	    } 
+	    if (s.equals("pokemon")) {
+		System.out.println(player.getPokemonStatus());
+		walk(player,source);
+	    }
+	    if (s.equals("exit game")) {
+		System.exit(0);
+	    } else {
+		System.out.println("You can't go there!");
+		walk(player,source);
+	    }
+	}
+	if (source.equals("home")) {
 	    System.out.println("Where do you want to go?");
 	    System.out.println("PROF. OAK'S LAB   PEWTER CITY   SAVE");
 	    s = scan.nextLine();

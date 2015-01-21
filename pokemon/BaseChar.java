@@ -208,7 +208,6 @@ public abstract class BaseChar implements Serializable {
 	    opponent.setHealth(newHealth);
 	    s = this + " used TACKLE!";
 	    if (crit == 0) {
-		modifier = modifier * 2;
 		s = s + "\nIt's a critical hit!";
 	    }
 	} else {
@@ -256,8 +255,16 @@ public abstract class BaseChar implements Serializable {
     }
     */
 
+    public void learnMoves() {
+
+    }
+
+    public boolean useMove(String move, BaseChar opponent) {
+	return false;
+    }
+
     public String moveset() {
-	String s = moves[0] + " " + PP[0] + "/" + maxPP[0] + "\n";
+	String s = moves[0] + " " + PP[0] + "/" + maxPP[0];
 	if (moves[1] != null) {
 	    s = s + "\n" + moves[1] + " " + PP[1] + "/" + maxPP[1];
 	}
