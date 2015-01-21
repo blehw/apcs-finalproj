@@ -116,12 +116,18 @@ public class HomeTown {
 
     public String home(Player player) {
 	System.out.println("MOM: Hello, dear. You look tired. Why don't you take a rest?");
-	for (int i=0;i<player.getPokemon().length &&
+        for (int i=0;i<player.getPokemon().length &&
 		 player.getPokemon()[i] != null;i++) {
 	    player.getPokemon()[i].setHealth(player.getPokemon()[i].getMaxHealth());
-	    for (int k=0;i<player.getPokemon()[k].getMaxPP().length &&
-		     player.getPokemon()[k].getMaxPP() != null;i++) {
-		player.getPokemon()[k].setPP(k,player.getPokemon()[k].getMaxPP()[k]);
+	    player.getPokemon()[i].setPP(0,player.getPokemon()[i].getMaxPP()[0]);
+	    if (player.getPokemon()[i].getMaxPP()[1] != 0) {
+		player.getPokemon()[i].setPP(1,player.getPokemon()[i].getMaxPP()[1]);
+	    }
+	    if (player.getPokemon()[i].getMaxPP()[2] != 0) {
+		player.getPokemon()[i].setPP(1,player.getPokemon()[i].getMaxPP()[2]);
+	    }
+	    if (player.getPokemon()[i].getMaxPP()[3] != 0) {
+		player.getPokemon()[i].setPP(1,player.getPokemon()[i].getMaxPP()[3]);
 	    }
 	}
 	System.out.println("MOM: There you go. All rested up.");

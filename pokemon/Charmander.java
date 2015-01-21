@@ -11,7 +11,7 @@ public class Charmander extends Fire {
     public String ember(BaseChar opponent) {
 	//locating PP to attack
 	int n = 0;
-	while (n < nummoves() && !getMoves()[n].equals("TACKLE")) {
+	while (n < nummoves() && !getMoves()[n].equals("EMBER")) {
 	    n = n + 1;
 	}
 	//the attack
@@ -22,17 +22,17 @@ public class Charmander extends Fire {
 	    if (crit == 0) {
 		modifier = modifier * 2;
 	    }
-	    if (opponent.getWeakness() == "Fire") {
+	    if (opponent.getWeakness().equals("Fire")) {
 		modifier = modifier * 2;
 	    }
-	    if (opponent.getResistance() == "Fire") {
+	    if (opponent.getResistance().equals("Fire")) {
 		modifier = modifier/2;
 	    }
-	    if (getType() == "Fire") {
-		modifier = modifier + (modifier/2);
+	    if (this.getType().equals("Fire")) {
+		modifier = modifier * 2;
 	    }
 	    int newHealth = opponent.getHealth() -
-		(super.damage(opponent,40)*modifier);
+		(super.damage(opponent,40)* modifier);
 	    opponent.setHealth(newHealth);
 	    s = this + " used EMBER!";
 	    if (opponent.getWeakness() == "Fire") {
@@ -50,6 +50,11 @@ public class Charmander extends Fire {
 	    } else {
 		s = this + " used EMBER! But it missed!";
 	    }
+	}
+	//subtracting PP
+	if (this.getPP()[n] > 0) {
+	    int newPP = this.getPP()[n] - 1;
+	    this.setPP(n,newPP);
 	}
 	return s;
     }

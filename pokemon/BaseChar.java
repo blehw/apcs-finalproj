@@ -176,7 +176,7 @@ public abstract class BaseChar implements Serializable {
 
     public String status(){
 	String s = name + "'s Status\n";
-	s += "Health:  " + health + "\n";
+	s += "Health:  " + health + "/" + maxhealth + "\n";
 	s += "Speed:   " + speed + "\n";
 	s += "Defense: " + defense + "\n";
 	s += "Attack:  " + attack + "\n";
@@ -184,9 +184,8 @@ public abstract class BaseChar implements Serializable {
     }
 
     public int damage(BaseChar opponent, int base) {
-	return ((((2* this.getLevel() + 10)/250) *
-		(this.getAttack()/opponent.getDefense()) *
-		 base) + 2);
+	return ((2 * level + 10) * attack * base * (r.nextInt(16) + 85))
+	    /(250 * defense * 100) + 2;
     }
 
     public String tackle(BaseChar opponent) {
