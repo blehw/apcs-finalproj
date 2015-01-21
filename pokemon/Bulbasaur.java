@@ -9,22 +9,40 @@ public class Bulbasaur extends Grass {
     }
 
     public String vinewhip(BaseChar opponent){
-	String s = "";
-	int modifier = 1;
-	if (opponent.getWeakness() == "Grass"){
-	    modifier = modifier * 2;
-	}
-	if (opponent.getResistance() == "Grass"){
-	    modifier = modifier / 2;
-	}
-	if (r.nextInt(100) <= 100) {
-	    int newHealth = opponent.getHealth() -
-		(super.damage(opponent, 40) * modifier);
-	    opponent.setHealth(newHealth);
-	    s = this + " used VINEWHIP!";
-	}
-	return s;
+	return moveMaker(opponent, "VINEWHIP", "Grass", 40, 100);
     }
 
+    public String leafblade(BaseChar opponent){
+	return moveMaker(opponent, "LEAFBLADE", "Grass", 80, 75);
+    }
+
+    public String frenzyplant(BaseChar opponent){
+	return moveMaker(opponent, "FRENZYPLANT", "Grass", 120, 50);
+    }
+
+    public boolean useMove(String move, BaseChar opponent) {
+	if (move.equals("vinewhip")) {
+	    System.out.println("\n" + vinewhip(opponent));
+	    return true;
+	}
+	return false;
+    }
+    
+    public void learnMoves(){
+	if (getLevel() == 2){
+	    int n = 0;
+	    while (n < nummoves() && getMoves()[n] != null) {
+		n = n + 1;
+	    }
+	    if (n <= 4) {
+		System.out.println(this + " learned EMBER!");
+		setMove(n,"EMBER");
+		setPP(n,25);
+		setMaxPP(n,25);
+	    } else {
+		System.out.println(this + " wants to learn EMBER! However, " + this + " already knows four moves. Delete to a move to make room for EMBER?");
+	    }
+	}
+    }
 
 }      

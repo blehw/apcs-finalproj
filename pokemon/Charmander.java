@@ -12,6 +12,14 @@ public class Charmander extends Fire {
 	return moveMaker(opponent,"EMBER","Fire",40,100);
     }
 
+    public String flamethrower(BaseChar opponent){
+	return moveMaker(opponent,"FLAMETHROWER","Fire", 80,75);
+    }
+
+    public String blastburn(BaseChar opponent){
+	return moveMaker(opponent, "BLASTBURN", "Fire", 120, 50);
+    }
+
     public boolean useMove(String move, BaseChar opponent) {
 	if (move.equals("ember")) {
 	    System.out.println("\n" + ember(opponent));
