@@ -3,6 +3,8 @@ import java.util.*;
 
 public abstract class BaseChar implements Serializable {
 
+
+    private int stage;
     private int level;
     private int experience;
     private int maxhealth;
@@ -36,6 +38,7 @@ public abstract class BaseChar implements Serializable {
 	setMove(0,"TACKLE");
 	setMaxPP(0,35);
 	setPP(0,getMaxPP()[0]);
+	setStage(1);
     }
 
     public String toString() {
@@ -106,6 +109,10 @@ public abstract class BaseChar implements Serializable {
 	return PP;
     }
 
+    public int getStage() {
+	return stage;
+    }
+
     public void setLevel(int value) {
 	level = value;
     }
@@ -172,6 +179,10 @@ public abstract class BaseChar implements Serializable {
 
     public void setPP(int pos, int n) {
 	 PP[pos] = n;
+    }
+
+    public void setStage(int s){
+	stage = s;
     }
 
     public String status(){
