@@ -7,6 +7,9 @@ public class Player implements Serializable {
     private String location;
     private String name;
     private String[] badges = new String[4];
+    private String[] bag = new String[20];
+    private int[] bagNum = new int[20]
+    private int money = 0;
 
     public Player() {
 	location = "Pallet Town";
@@ -50,6 +53,14 @@ public class Player implements Serializable {
 	}
 	s = s + "and " + badges[i] + "badge.";
 	return s;
+    }
+    
+    public String[] getBag() {
+	return bag;
+    }
+
+    private int[] getBagNum() {
+	return bagNum;
     }
 
     public void setLocation(String loc){
