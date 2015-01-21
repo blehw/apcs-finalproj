@@ -9,7 +9,7 @@ public class Charmander extends Fire {
     }
 
     public String ember(BaseChar opponent) {
-	return moveMaker(opponent,"EMBER","Fire",100);
+	return moveMaker(opponent,"EMBER","Fire",40,100);
     }
 
     public boolean useMove(String move, BaseChar opponent) {

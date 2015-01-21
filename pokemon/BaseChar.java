@@ -3,7 +3,6 @@ import java.util.*;
 
 public abstract class BaseChar implements Serializable {
 
-
     private int stage;
     private int level;
     private int experience;
@@ -200,7 +199,7 @@ public abstract class BaseChar implements Serializable {
     }
 
     public String moveMaker(BaseChar opponent, String move, 
-			    String type, int acc) {
+			    String type, int power, int acc) {
 	//locating PP to attack
 	int n = 0;
 	while (n < this.nummoves() && !moves[n].equals(move)) {
@@ -218,14 +217,14 @@ public abstract class BaseChar implements Serializable {
 		modifier = modifier * 2;
 	    }
 	    int newHealth = opponent.getHealth() -
-		(damage(opponent,50) * modifier);
+		(damage(opponent,power) * modifier);
 	    if (opponent.getResistance().equals(type)) {
 		newHealth = opponent.getHealth() -
-		    (damage(opponent,50) * modifier/2);
+		    (damage(opponent,power) * modifier/2);
 	    }
 	    if (this.getType().equals(type)) {
 		newHealth = opponent.getHealth() -
-		    (damage(opponent,50) * modifier * 3/2);
+		    (damage(opponent,power) * modifier * 3/2);
 	    }
 	    opponent.setHealth(newHealth);
 	    s = this + " used " + move + "!";
@@ -248,7 +247,7 @@ public abstract class BaseChar implements Serializable {
     }
 
     public String tackle(BaseChar opponent) {
-	return moveMaker(opponent,"TACKLE","Normal",95);
+	return moveMaker(opponent,"TACKLE","Normal",35,95);
     }
 
     /*

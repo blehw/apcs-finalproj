@@ -8,7 +8,7 @@ public class Player implements Serializable {
     private String name;
     private String[] badges = new String[4];
     private String[] bag = new String[20];
-    private int[] bagNum = new int[20]
+    private int[] bagNum = new int[20];
     private int money = 0;
 
     public Player() {
@@ -73,6 +73,14 @@ public class Player implements Serializable {
 
     public void setBadges(String badgeName, int pos){
 	badges[pos] = badgeName;
+    }
+
+    public void setBag(String item, int pos) {
+	bag[pos] = item;
+    }
+
+    public void setBagNum(int num, int pos) {
+	bagNum[pos] = num;
     }
 
 }

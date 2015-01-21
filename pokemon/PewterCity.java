@@ -39,8 +39,9 @@ public class PewterCity {
 
     public String pokemart(Player player) {
 	System.out.println("CASHIER: TAKE DIS POKEBALL N CATCH POKEMANS WID IT");
-	player.getBag()[0] = "POKEBALL";
-	player.getBagNum()[0] = 1;
+	player.setBag("POKEBALL",0);
+	player.setBagNum(1,0);
+	return "";
     }
 
     public String training(Player player) {
