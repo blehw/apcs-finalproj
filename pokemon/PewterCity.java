@@ -38,9 +38,23 @@ public class PewterCity {
     }
 
     public String pokemart(Player player) {
-	System.out.println("CASHIER: TAKE DIS POKEBALL N CATCH POKEMANS WID IT");
-	player.setBag("POKEBALL",0);
-	player.setBagNum(1,0);
+	System.out.println("CASHIER: Welcome to the POKEMART! We sell all kinds of goods here. What would you like to purchase?");
+	System.out.println(player + "'s money: $" + player.getMoney());  
+	System.out.println("POKEBALL $50");
+	s = scan.nextLine();
+	s = s.toLowerCase();
+	if (s.equals("pokeball")) {
+	    System.out.println("And how many POKEBALLS would you like to purchase?");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (player.getMoney() >= 50 * Integer.parseInt(s)) {
+		//add confirmation
+		player.setBag("POKEBALL",0);
+		player.setBagNum(1,0);
+		player.setMoney(player.getMoney() - 50);
+		System.out.println("CASHIER: Thank you for your purchase!");
+	    }
+	}
 	walk(player,"pokemart");
 	return "";
     }

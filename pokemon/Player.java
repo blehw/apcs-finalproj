@@ -64,6 +64,10 @@ public class Player implements Serializable {
 	return bagNum;
     }
 
+    public int getMoney() {
+	return money;
+    }
+
     public void setLocation(String loc){
 	location = loc;
     }
@@ -82,6 +86,10 @@ public class Player implements Serializable {
 
     public void setBagNum(int num, int pos) {
 	bagNum[pos] = num;
+    }
+
+    public void setMoney(int num) {
+	money = num;
     }
 
 }
