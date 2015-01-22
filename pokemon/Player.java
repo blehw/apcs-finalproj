@@ -14,6 +14,11 @@ public class Player implements Serializable {
     public Player() {
 	location = "Pallet Town";
     }
+    
+    public Player(String s) {
+	location = "Pallet Town";
+	name = s;
+    }
 
     public String toString() {
 	return name;

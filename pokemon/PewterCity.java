@@ -47,10 +47,11 @@ public class PewterCity {
 	    System.out.println("And how many POKEBALLS would you like to purchase?");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
-	    if (player.getMoney() >= 50 * Integer.parseInt(s)) {
+	    int p = Integer.parseInt(s);
+	    if (player.getMoney() >= 50 * p) {
 		//add confirmation
 		player.setBag("POKEBALL",0);
-		player.setBagNum(1,0);
+		player.setBagNum(p,0);
 		player.setMoney(player.getMoney() - 50);
 		System.out.println("CASHIER: Thank you for your purchase!");
 	    }
@@ -105,10 +106,80 @@ public class PewterCity {
 	}
 	return "";
     }
+
+    public String gym(Player player) {
+	/*
+	if (player.getBadges()[0].equals("BOULDER BADGE")) {
+	    
+	} else {
+	*/
+	    System.out.println("BROCK: Hello there! I'm BROCK, the leader of the PEWTER CITY GYM!");
+	    System.out.println("BROCK: Rock POKEMON exemplify what we should strive to be: tough, determined, made of minerals and small sand particles - er, forget that last part.");
+	    System.out.println("BROCK: Do you think you have what it takes to earn the BOULDER BADGE? Are you hardy enough to take me on?");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("yes")) {
+		System.out.println("BROCK: Alright then! Let's go! I'll pound you! - er, I mean - let's just battle.");
+		Player brock = new Player("BROCK");
+		Geodude geodude0 = new Geodude();
+		Geodude geodude1 = new Geodude();
+		geodude0.setLevel(5);
+		geodude0.setMaxHealth(25);
+		geodude0.setHealth(geodude1.getMaxHealth());
+		geodude0.setMaxSpeed(10);
+		geodude0.setSpeed(geodude1.getMaxSpeed());
+		geodude0.setMaxDefense(10);
+		geodude0.setDefense(geodude1.getMaxDefense());
+		geodude0.setMaxAttack(10);
+		geodude0.setAttack(geodude1.getMaxAttack());
+		geodude0.setMove(1,"ROCK THROW");
+		geodude0.setPP(1,15);
+		geodude0.setMaxPP(1,15);
+		geodude1.setLevel(5);
+		geodude1.setMaxHealth(25);
+		geodude1.setHealth(geodude1.getMaxHealth());
+		geodude1.setMaxSpeed(10);
+		geodude1.setSpeed(geodude1.getMaxSpeed());
+		geodude1.setMaxDefense(10);
+		geodude1.setDefense(geodude1.getMaxDefense());
+		geodude1.setMaxAttack(10);
+		geodude1.setAttack(geodude1.getMaxAttack());
+		geodude1.setMove(1,"ROCK THROW");
+		geodude1.setPP(1,15);
+		geodude1.setMaxPP(1,15);
+		brock.setPokemon(geodude0,0);
+		brock.setPokemon(geodude1,1);
+		battle.trainerRoutine(player,brock);
+		if (player.getPokemon()[0].getHealth() > 0) {
+		    System.out.println("BROCK: Wow, you beat me! You ready are strong. Here, take the BOULDER BADGE!");
+		    player.setBadges("BOULDER BADGE",0);
+		    System.out.println("BROCK: Don't stop training, kid! You'll go far.");
+		}
+		walk(player,"brock's gym");
+	    } else {
+		System.out.println("BROCK: I'll see you next time then, when you HARD-en up to it. Har har har!");
+		walk(player,"brock's gym");
+	    }
+	    //	}
+	return "";
+    }
+
     public String walk(Player player, String source) {
 	if (source.equals("street")) {
 	    System.out.println("Where do you want to go?");
 	    System.out.println("POKEMON CENTER   POKEMART   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
+	    s = scan.nextLine();
+	    s = s.toLowerCase();
+	    if (s.equals("pokemon center")) {
+		pokemoncenter(player);
+	    }
+	    if (s.equals("pokemart")) {
+		pokemart(player);
+	    }
+	}
+	if (source.equals("brock's gym")) {
+	    System.out.println("Where do you want to go?");
+	    System.out.println("POKEMON CENTER   POKEMART   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -125,6 +196,9 @@ public class PewterCity {
 	    s = s.toLowerCase();
 	    if (s.equals("pokemart")) {
 		pokemart(player);
+	    }
+	    if (s.equals("brock's gym")) {
+		gym(player);
 	    }
 	    if (s.equals("pallet town")) {
 		Route1 route1 = new Route1();
