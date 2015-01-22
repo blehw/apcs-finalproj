@@ -288,7 +288,7 @@ public abstract class BaseChar implements Serializable {
     }
 
     public boolean useMove(String move, BaseChar opponent) {
-	return false;
+	return true;
     }
 
     public String moveset() {

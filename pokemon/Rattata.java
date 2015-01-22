@@ -6,6 +6,7 @@ public class Rattata extends Normal{
     
     public Rattata() {
 	setName("RATTATA");
+	setLevel(1);
 	setMaxHealth(5 + r.nextInt(10));
 	setHealth(getMaxHealth());
 	setMaxSpeed(2 + r.nextInt(4));
@@ -15,5 +16,5 @@ public class Rattata extends Normal{
         setMaxAttack(2 + r.nextInt(4));
 	setAttack(getMaxAttack());
     }
-
+    
 }
