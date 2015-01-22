@@ -214,7 +214,10 @@ public class PewterCity {
 		} catch(Exception ex) {
 		    ex.printStackTrace();
 		}
-	    } 
+	    }
+	    if (s.equals(player)) {
+		System.out.println("Money: " + player.getMoney());
+	    }
 	    if (s.equals("pokemon")) {
 		System.out.println(player.getPokemonStatus());
 		walk(player,source);
