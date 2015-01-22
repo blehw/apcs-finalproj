@@ -211,11 +211,13 @@ public abstract class BaseChar implements Serializable {
 	if (r.nextInt(100) <= acc && this.getPP()[n] > 0) {
 	    int modifier = 1;
 	    int crit = r.nextInt(10);
+	    s = this + " used " + move + "!";
 	    if (crit == 0) {
 		modifier = modifier * 2;
 	    }
 	    if (opponent.getWeakness().contains(type)) {
 		modifier = modifier * 2;
+		s = s + "\nIt's super effective!";
 	    }
 	    int newHealth = opponent.getHealth() -
 		(damage(opponent,power) * modifier);
@@ -228,7 +230,7 @@ public abstract class BaseChar implements Serializable {
 		    (damage(opponent,power) * modifier * 3/2);
 	    }
 	    opponent.setHealth(newHealth);
-	    s = this + " used " + move + "!";
+	    // s = this + " used " + move + "!";
 	    if (crit == 0) {
 		s = s + "\nIt's a critical hit!";
 	    }
