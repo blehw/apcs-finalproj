@@ -25,6 +25,14 @@ public class Bulbasaur extends Grass {
 	    System.out.println("\n" + vinewhip(opponent));
 	    return true;
 	}
+	if (move.equals("leafblade")) {
+	    System.out.println("\n" + leafblade(opponent));
+	    return true;
+	}
+	if (move.equals("frenzyplant")) {
+	    System.out.println("\n" + frenzyplant(opponent));
+	    return true;
+	}
 	return false;
     }
     

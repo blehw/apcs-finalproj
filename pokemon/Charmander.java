@@ -25,6 +25,14 @@ public class Charmander extends Fire {
 	    System.out.println("\n" + ember(opponent));
 	    return true;
 	}
+	if (move.equals("flamethrower")) {
+	    System.out.println("\n" + flamethrower(opponent));
+	    return true;
+	}
+	if (move.equals("blastburn")) {
+	    System.out.println("\n" + blastburn(opponent));
+	    return true;
+	}
 	return false;
     }
     

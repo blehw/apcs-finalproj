@@ -11,10 +11,28 @@ public class Squirtle extends Water {
     public String watergun(BaseChar opponent) {
 	return moveMaker(opponent, "WATER GUN", "Water", 40, 100);
     }
+    
+    public String surf(BaseChar opponent) {
+	return moveMaker(opponent, "SURF", "Water", 80, 75);
+    }
+
+    public String hydrocannon(BaseChar opponent) {
+	return moveMaker(opponent, "HYDROCANNON", "Water", 120, 50);
+    }
+
+
 
     public boolean useMove(String move, BaseChar opponent) {
 	if (move.equals("water gun")) {
 	    System.out.println("\n" + watergun(opponent));
+	    return true;
+	}
+	if (move.equals("surf")) {
+	    System.out.println("\n" + surf(opponent));
+	    return true;
+	}
+	if (move.equals("hydrocannon")) {
+	    System.out.println("\n" + hydrocannon(opponent));
 	    return true;
 	}
 	return false;
