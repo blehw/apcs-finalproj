@@ -6,8 +6,8 @@ public class Driver implements Serializable {
     public static void main(String[] args) {
 
 	Player player = new Player();
-	HomeTown hometown = new HomeTown();
 	Player rival = new Player();
+	HomeTown hometown = new HomeTown();
 	Scanner scan = new Scanner(System.in);
 
 	try {
@@ -16,6 +16,10 @@ public class Driver implements Serializable {
 	    ois.close();
 	    if (player.getLocation().equals("Pallet Town")) {
 		System.out.println(hometown.walk(player,"home"));
+	    }
+	    if (player.getLocation().equals("Pewter City")) {
+		PewterCity pewtercity = new PewterCity();
+		System.out.println(pewtercity.walk(player,"pokemon center"));
 	    }
         } catch(Exception ex) {
 	    //intro courtesy of http://www.supercheats.com/gameboy/walkthroughs/pokemonred-walkthrough09.txt

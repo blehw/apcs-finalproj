@@ -9,12 +9,12 @@ public class Squirtle extends Water {
     }
 
     public String watergun(BaseChar opponent) {
-	return moveMaker(opponent, "WATERGUN", "Water", 40, 100);
+	return moveMaker(opponent, "WATER GUN", "Water", 40, 100);
     }
 
     public boolean useMove(String move, BaseChar opponent) {
-	if (move.equals("ember")) {
-	    System.out.println("\n" + ember(opponent));
+	if (move.equals("water gun")) {
+	    System.out.println("\n" + watergun(opponent));
 	    return true;
 	}
 	return false;
@@ -27,12 +27,12 @@ public class Squirtle extends Water {
 		n = n + 1;
 	    }
 	    if (n <= 4) {
-		System.out.println(this + " learned EMBER!");
-		setMove(n,"EMBER");
+		System.out.println(this + " learned WATER GUN!");
+		setMove(n,"WATER GUN");
 		setPP(n,25);
 		setMaxPP(n,25);
 	    } else {
-		System.out.println(this + " wants to learn EMBER! However, " + this + " already knows four moves. Delete to a move to make room for EMBER?");
+		System.out.println(this + " wants to learn WATER GUN! However, " + this + " already knows four moves. Delete to a move to make room for WATER GUN?");
 	    }
 	}
     }

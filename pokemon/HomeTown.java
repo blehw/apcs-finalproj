@@ -156,7 +156,7 @@ public class HomeTown {
 	    } 
 	    if (s.equals("pewter city")) {
 		Route1 route1 = new Route1();
-		route1.routine(player);
+		route1.routinePallet(player);
 	    } 
 	    if (s.equals("pokemon")) {
 		System.out.println(player.getPokemonStatus());
@@ -179,7 +179,7 @@ public class HomeTown {
 	    } 
 	    if (s.equals("pewter city")) {
 		Route1 route1 = new Route1();
-		route1.routine(player);
+		route1.routinePallet(player);
 	    } 
 	    if (s.equals("pokemon")) {
 		System.out.println(player.getPokemonStatus());
@@ -214,7 +214,7 @@ public class HomeTown {
 	    if (s.equals("pewter city")) {
 		if (player.getPokemon()[0].getHealth() != 0) {
 		    Route1 route1 = new Route1();
-		    route1.routine(player);
+		    route1.routinePallet(player);
 		} else {
 		    System.out.println("Your POKEMON has no health left! Go home to rest up first.");
 		    walk(player,source);

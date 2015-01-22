@@ -32,10 +32,11 @@ public class Player implements Serializable {
     }
 
     public String getPokemonStatus() {
-	String s = "";
+	String s = "\n";
 	for (int i=0;i<pokemon.length && pokemon[i] != null;i++) {
-	    s += pokemon[i].status();
+	    s += (i+1) +  ": " + pokemon[i].status() + "\n";
 	}
+	s = s.substring(0,s.length()-1);
 	return s;
     }
     
@@ -59,7 +60,7 @@ public class Player implements Serializable {
 	return bag;
     }
 
-    private int[] getBagNum() {
+    public int[] getBagNum() {
 	return bagNum;
     }
 
