@@ -15,7 +15,6 @@ apcs-finalproj: POKEMON
 - 1/15/15 Finished battle/leveling up system and started on the Driver WY
 - 1/17/15 Finished most of HomeTown and worked on Route1 WY
 - 1/18/15 Worked on Battle routine; what happens when you win/lose, finished save system WY
-<<<<<<< HEAD
 
 add catching pokemon
 add switching pokemon
@@ -24,5 +23,5 @@ add training area (with trainers and wild pokemon)
 add pokemart
 add PC (in pokemon center)
 =======
-- 1/19/15 Worked on Pewter City, taught Pokemon how to learn moves, fixed problems with damage and attack WY
->>>>>>> 1b5b644bb6ebe09a4f214a1a830f337265d00626
+- 1/20/15 Worked on Pewter City, taught Pokemon how to learn moves, fixed problems with damage and attack WY
+- 1/21/15 Worked on catching Pokemon, buying Pokeballs, money, and Pewter City gym WY
