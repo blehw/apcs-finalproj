@@ -2,8 +2,6 @@ import java.util.*;
 
 public class Squirtle extends Water {
 
-    private Random r = new Random();
-
     public Squirtle() {
 	setName("SQUIRTLE");
     }
@@ -19,8 +17,6 @@ public class Squirtle extends Water {
     public String hydrocannon(BaseChar opponent) {
 	return moveMaker(opponent, "HYDRO CANNON", "Water", 120, 75);
     }
-
-
 
     public boolean useMove(String move, BaseChar opponent) {
 	if (move.equals("water gun")) {

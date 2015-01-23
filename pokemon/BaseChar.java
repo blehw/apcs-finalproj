@@ -272,6 +272,28 @@ public abstract class BaseChar implements Serializable {
 		setMaxPP(n,PP);
 	    } else {
 		System.out.println(this + " wants to learn " + move + "! However, " + this + " already knows four moves. Delete to a move to make room for " + move + "?");
+		Scanner scan = new Scanner(System.in);
+		String s = scan.nextLine();
+		s = s.toLowerCase();
+		if (s.equals("yes")) {
+		    System.out.println("Which move should be deleted?");
+		    s = scan.nextLine();
+		    s = s.toLowerCase();
+		    int k = 0;
+		    while (k < nummoves() && !getMoves()[k].equals(move)) {
+			k = k + 1;
+		    }
+		    if (k<=4) {
+			System.out.println(this + " learned " + move + "!");
+			setMove(n,move);
+			setPP(n,PP);
+			setMaxPP(n,PP);
+		    } else {
+			System.out.println(this + " did not learn " + move + ".");
+		    }
+		} else {
+		    System.out.println(this + " did not learn " + move + ".");
+		}
 	    }
 	}
 	return "";
