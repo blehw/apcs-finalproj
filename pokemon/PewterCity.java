@@ -9,6 +9,12 @@ public class PewterCity {
     Scanner scan = new Scanner(System.in);
     Random r = new Random();
 
+    //Checks whether you can buy this many items/ whether it's a number  
+  public boolean canBuy(String str){
+      return str.matches("-?\\d");
+      
+  }
+
     public String routine(Player player) {
 	player.setLocation("Pewter City");	
 	System.out.println("You have reached PEWTER CITY");
@@ -48,12 +54,17 @@ public class PewterCity {
 	    System.out.println("And how many POKEBALLS would you like to purchase?");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
-	    //ADD ERROR CHECK
+	    while(canBuy(s) != true){
+		System.out.println("CASHIER: You can't buy " + s + " items." +
+				   "\n" + "How many POKEBALLS would you like to purchase?");
+		s = scan.nextLine();
+		s = s.toLowerCase();
+	    }
 	    int p = Integer.parseInt(s);
 	    if (player.getMoney() >= 50 * p) {
 		//add confirmation
 		player.setBag("POKEBALL",0);
-		player.setBagNum(p,0);
+		player.setBagNum(player.getBagNum()[0] + p,0);
 		player.setMoney(player.getMoney() - (p * 50));
 		System.out.println("CASHIER: Thank you for your purchase!");
 	    }
