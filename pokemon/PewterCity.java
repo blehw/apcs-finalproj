@@ -162,6 +162,7 @@ public class PewterCity {
 		    if (player.getPokemon()[0].getHealth() > 0) {
 			System.out.println(hiker + ": Guess I didn't drink enough water...");
 			player.setMoney(player.getMoney() + 250);
+			System.out.println(player + " got $250 for winning!");
 		    }
 		}
 		if (rand == 3) {
@@ -173,6 +174,7 @@ public class PewterCity {
 		    if (player.getPokemon()[0].getHealth() > 0) {
 			System.out.println(hiker + ": Well, back to the cliffs...");
 			player.setMoney(player.getMoney() + 250);
+			System.out.println(player + " got $250 for winning!");
 		    }
 		}
 		training(player);
@@ -202,20 +204,27 @@ public class PewterCity {
 	if (s.contains("switch") && s.length() == 10) {
 	    String switch1 = s.substring(7,8);
 	    String switch2 = s.substring(9,10);
-	    int a = Integer.parseInt(switch1);
-	    int b = Integer.parseInt(switch2);
-	    if ((switch1.equals("1") ||
+	    int a = 1;
+	    int b = 2;
+	    try {
+		a = Integer.parseInt(switch1);
+		b = Integer.parseInt(switch2);
+	    } catch (Exception e) {
+		System.out.println("You can't switch those POKEMON!");
+	        training(player);
+	    }
+	    if (((switch1.equals("1") ||
 		 switch1.equals("2") ||
 		 switch1.equals("3") ||
 		 switch1.equals("4") ||
 		 switch1.equals("5") ||
-		 switch1.equals("6") ||
-		 switch2.equals("1") ||
+		 switch1.equals("6")) &&
+		 (switch2.equals("1") ||
 		 switch2.equals("2") ||
 		 switch2.equals("3") ||
 		 switch2.equals("4") ||
 		 switch2.equals("5") ||
-		 switch2.equals("6")) &&
+		  switch2.equals("6"))) &&
 		!(switch1.equals(switch2)) &&
 		!(player.getPokemon()[a-1] == null) &&
 		!(player.getPokemon()[b-1] == null)) {  
@@ -281,6 +290,8 @@ public class PewterCity {
 		brock.setPokemon(geodude1,1);
 		battle.trainerRoutine(player,brock);
 		if (player.getPokemon()[0].getHealth() > 0) {
+		    player.setMoney(player.getMoney() + 1000);
+		    System.out.println(player + " got $1000 for winning!");
 		    System.out.println("BROCK: Wow, you beat me! You ready are strong. Here, take the BOULDER BADGE!");
 		    player.setBadges("BOULDER BADGE",0);
 		    System.out.println("BROCK: Don't stop training, kid! You'll go far.");
@@ -322,20 +333,27 @@ public class PewterCity {
 	if (s.contains("switch") && s.length() == 10) {
 	    String switch1 = s.substring(7,8);
 	    String switch2 = s.substring(9,10);
-	    int a = Integer.parseInt(switch1);
-	    int b = Integer.parseInt(switch2);
-	    if ((switch1.equals("1") ||
+	    int a = 1;
+	    int b = 2;
+	    try {
+		a = Integer.parseInt(switch1);
+		b = Integer.parseInt(switch2);
+	    } catch (Exception e) {
+		System.out.println("You can't switch those POKEMON!");
+	        walk(player,source);
+	    }
+	    if (((switch1.equals("1") ||
 		 switch1.equals("2") ||
 		 switch1.equals("3") ||
 		 switch1.equals("4") ||
 		 switch1.equals("5") ||
 		 switch1.equals("6") ||
-		 switch2.equals("1") ||
-		 switch2.equals("2") ||
+		 switch2.equals("1")) &&
+		 (switch2.equals("2") ||
 		 switch2.equals("3") ||
 		 switch2.equals("4") ||
 		 switch2.equals("5") ||
-		 switch2.equals("6")) &&
+		  switch2.equals("6"))) &&
 		!(switch1.equals(switch2)) &&
 		!(player.getPokemon()[a-1] == null) &&
 		!(player.getPokemon()[b-1] == null)) {  
@@ -454,24 +472,37 @@ public class PewterCity {
 	    if (s.contains("pc switch") && s.length() == 13) {
 		String switch1 = s.substring(10,11);
 		String switch2 = s.substring(12,13);
-		int a = Integer.parseInt(switch1);
-		int b = Integer.parseInt(switch2);
-		if (switch1.equals("1") ||
-		     switch1.equals("2") ||
-		     switch1.equals("3") ||
-		     switch1.equals("4") ||
-		     switch1.equals("5") ||
-		     switch1.equals("6") &&
-		     !(player.getPokemon()[a-1] == null) &&
-		     !(player.getPC().get(b-1) == null)) {  
-		    int s1 = Integer.parseInt(switch1) - 1;
-		    int s2 = Integer.parseInt(switch2) - 1;
-		    BaseChar poke1 = player.getPokemon()[s1];
-		    BaseChar poke2 = player.getPC().get(s2);
-		    player.setPokemon(poke2,s1);
-		    player.setPC(poke1,s2);
-		    System.out.println(player.getPokemonStatus());
+		int a = 1;
+		int b = 2;
+		try { 
+		    a = Integer.parseInt(switch1);
+		    b = Integer.parseInt(switch2);
+		} catch (Exception e) {
+		    System.out.println("You can't switch those POKEMON!");
 		    walk(player,source);
+		}
+		if (player.getPC().size() >= b) {
+		    if ((switch1.equals("1") ||
+			 switch1.equals("2") ||
+			 switch1.equals("3") ||
+			 switch1.equals("4") ||
+			 switch1.equals("5") ||
+			 switch1.equals("6")) &&
+			!(player.getPokemon()[a-1] == null) &&
+			!(player.getPC().get(b-1) == null) &&
+			player.getPC().size()>=b) {  
+			int s1 = Integer.parseInt(switch1) - 1;
+			int s2 = Integer.parseInt(switch2) - 1;
+			BaseChar poke1 = player.getPokemon()[s1];
+			BaseChar poke2 = player.getPC().get(s2);
+			player.setPokemon(poke2,s1);
+			player.setPC(poke1,s2);
+			System.out.println(player.getPokemonStatus());
+			walk(player,source);
+		    } else {
+			System.out.println("You can't switch those POKEMON!");
+			walk(player,source);
+		    }
 		} else {
 		    System.out.println("You can't switch those POKEMON!");
 		    walk(player,source);	  
@@ -479,8 +510,8 @@ public class PewterCity {
 	    }
 	    if (etc(player,source,s)) {
 	    } else {
-	    System.out.println("You can't go there!");
-	    walk(player,source);
+		System.out.println("You can't go there!");
+		walk(player,source);
 	    }
 	}
 	if (source.equals("pokemart")) {
