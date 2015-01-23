@@ -49,6 +49,15 @@ public class Player implements Serializable {
 	s = s.substring(0,s.length()-1);
 	return s;
     }
+
+    public String getPCPokemonStatus() {
+	String s = "\n";
+	for (int i=0;i<PC.size() && PC.get(i) != null;i++) {
+	    s += (i+1) +  ": " + PC.get(i).status() + "\n";
+	}
+	s = s.substring(0,s.length()-1);
+	return s;
+    }
     
     public String[] getBadges(){
 	return badges;
@@ -87,6 +96,10 @@ public class Player implements Serializable {
 
     public void addPC(BaseChar pokemon) {
 	PC.add(pokemon);
+    }
+
+    public void setPC(BaseChar pokemon,int n) {
+	PC.set(n,pokemon);
     }
     
     public void setPokemon(BaseChar poke, int pos){

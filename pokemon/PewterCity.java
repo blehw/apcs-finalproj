@@ -10,10 +10,10 @@ public class PewterCity {
     Random r = new Random();
 
     //Checks whether you can buy this many items/ whether it's a number  
-  public boolean canBuy(String str){
+    public boolean canBuy(String str){
       return str.matches("-?\\d");
       
-  }
+    }
 
     public String routine(Player player) {
 	player.setLocation("Pewter City");	
@@ -414,9 +414,18 @@ public class PewterCity {
 	}
 	if (source.equals("pokemon center")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMART   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY   SAVE");
+	    System.out.println("PC   POKEMART   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY   SAVE");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
+	    if (s.equals("pc")) {
+		if (player.getPCPokemonStatus().equals("")) {
+		    System.out.println("There are no POKEMON in the PC!");
+		    walk(player,source);
+		} else {
+		    System.out.println(player.getPCPokemonStatus());
+		    walk(player,source);
+		}
+	    }
 	    if (s.equals("pokemart")) {
 		pokemart(player);
 	    }
@@ -440,6 +449,32 @@ public class PewterCity {
 		    walk(player,source);
 		} catch(Exception ex) {
 		    ex.printStackTrace();
+		}
+	    }
+	    if (s.contains("pc switch") && s.length() == 13) {
+		String switch1 = s.substring(10,11);
+		String switch2 = s.substring(12,13);
+		int a = Integer.parseInt(switch1);
+		int b = Integer.parseInt(switch2);
+		if (switch1.equals("1") ||
+		     switch1.equals("2") ||
+		     switch1.equals("3") ||
+		     switch1.equals("4") ||
+		     switch1.equals("5") ||
+		     switch1.equals("6") &&
+		     !(player.getPokemon()[a-1] == null) &&
+		     !(player.getPC().get(b-1) == null)) {  
+		    int s1 = Integer.parseInt(switch1) - 1;
+		    int s2 = Integer.parseInt(switch2) - 1;
+		    BaseChar poke1 = player.getPokemon()[s1];
+		    BaseChar poke2 = player.getPC().get(s2);
+		    player.setPokemon(poke2,s1);
+		    player.setPC(poke1,s2);
+		    System.out.println(player.getPokemonStatus());
+		    walk(player,source);
+		} else {
+		    System.out.println("You can't switch those POKEMON!");
+		    walk(player,source);	  
 		}
 	    }
 	    if (etc(player,source,s)) {
@@ -469,8 +504,8 @@ public class PewterCity {
 	    }
 	    if (etc(player,source,s)) {
 	    } else {
-	    System.out.println("You can't go there!");
-	    walk(player,source);
+		System.out.println("You can't go there!");
+		walk(player,source);
 	    }
 	}
 	return "";
