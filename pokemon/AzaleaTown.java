@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class PewterCity {
+public class AzaleaTown {
 
     private String s;
     int meters = 0;
@@ -16,8 +16,8 @@ public class PewterCity {
     }
 
     public String routine(Player player) {
-	player.setLocation("Pewter City");	
-	System.out.println("You have reached PEWTER CITY.");
+	player.setLocation("Azalea Town");	
+	System.out.println("You have reached AZALEA TOWN.");
 	walk(player,"street");
 	return "";
     }
@@ -74,72 +74,54 @@ public class PewterCity {
     }
 
     public String training(Player player) {
-	System.out.println("Do you want to WALK FORWARDS or WALK BACKWARDS (to PEWTER CITY)?");
+	System.out.println("Do you want to WALK FORWARDS or WALK BACKWARDS (to AZALEA TOWN)?");
 	s = scan.nextLine();
 	s = s.toLowerCase();
 	if (s.equals("walk forwards")) {
 	    if (meters >= 300) {
-		System.out.println("OUCH. There is a large, rocky mountain in your way. How did you miss that?");
+		System.out.println("There's a big 'ol swamp. A. BIG. 'OL. SWAMP.");
 	    } else {
 		meters = meters + 50;
 		System.out.println("You walked 50 meters.");
-		System.out.println("You are " + meters + " meters from PEWTER CITY.");
+		System.out.println("You are " + meters + " meters from AZALEA TOWN.");
 		int rand = r.nextInt(6);
 		if (rand == 0) {
-		    Geodude geodude = new Geodude();
-		    battle.wildRoutine(player,geodude);
+		    Scyther scyther = new Scyther();
+		    battle.wildRoutine(player,scyther);
 		}
 		if (rand == 1) {
-		    Onix onix = new Onix();
-		    battle.wildRoutine(player,onix);
+		    Heracross heracross = new Heracross();
+		    battle.wildRoutine(player,heracross);
 		}
-		if (rand == 2) {
-		    Player hiker = new Player("RANDOM HIKER GUY");
-		    Geodude geodude = new Geodude();
-		    //Stats for Geodude
-		    geodude.setLevel(4);
-		    geodude.setMaxHealth(18 + r.nextInt(5));
-		    geodude.setHealth(geodude.getMaxHealth());
-		    geodude.setMaxSpeed(5 + r.nextInt(5));
-		    geodude.setSpeed(geodude.getMaxSpeed());
-		    geodude.setMaxDefense(5 + r.nextInt(5));
-		    geodude.setDefense(geodude.getMaxDefense());
-		    geodude.setMaxAttack(5 + r.nextInt(5));
-		    geodude.setAttack(geodude.getMaxAttack());
-		    geodude.setMove(1,"ROCK THROW");
-		    geodude.setPP(1,15);
-		    geodude.setMaxPP(1,15);
-		    hiker.setPokemon(geodude,0);
-		    System.out.println(hiker + ": Make sure you stay hydrated in these mountains...Let's battle to see how you're doing!");
-		    battle.trainerRoutine(player,hiker);
+		if (rand == 2 || rand == 3) {
+		    Player bugcatcher = new Player("RANDOM WEIRDO BUG CATCHER");
+		    Rattata rattata = new Rattata();
+		    Scyther scyther = new Scyther();
+		    //Stats for Rattata
+		    rattata.setLevel(11);
+		    rattata.setMaxHealth(27 + r.nextInt(10));
+		    rattata.setHealth(rattata.getMaxHealth());
+		    rattata.setMaxSpeed(27 + r.nextInt(10));
+		    rattata.setSpeed(rattata.getMaxSpeed());
+		    rattata.setMaxDefense(27 + r.nextInt(10));
+		    rattata.setDefense(rattata.getMaxDefense());
+		    rattata.setMaxAttack(27 + r.nextInt(10));
+		    rattata.setAttack(rattata.getMaxAttack());
+		    scyther.setLevel(12);
+		    scyther.setMaxHealth(35 + r.nextInt(5));
+		    scyther.setHealth(scyther.getMaxHealth());
+		    scyther.setMaxSpeed(25 + r.nextInt(5));
+		    scyther.setSpeed(scyther.getMaxSpeed());
+		    scyther.setMaxDefense(25 + r.nextInt(5));
+		    scyther.setDefense(scyther.getMaxDefense());
+		    scyther.setMaxAttack(25 + r.nextInt(5));
+		    scyther.setAttack(scyther.getMaxAttack());
+		    bugcatcher.setPokemon(rattata,0);
+		    bugcatcher.setPokemon(scyther,1);
+		    System.out.println(bugcatcher + ": Boy I sure like catching bugs. And being weird. And battling.");
+		    battle.trainerRoutine(player,bugcatcher);
 		    if (player.getPokemon()[0].getHealth() > 0) {
-			System.out.println(hiker + ": Guess I didn't drink enough water...");
-			System.out.println(player + " got $250 for winning!");
-			player.setMoney(player.getMoney() + 250);
-		    }
-		}
-		if (rand == 3) {
-		    Player hiker = new Player("RANDOM CLIMBER WOMAN");
-		    Onix onix = new Onix();
-		    //Stats for Onix
-		    onix.setLevel(3);
-		    onix.setMaxHealth(17 + r.nextInt(5));
-		    onix.setHealth(onix.getMaxHealth());
-		    onix.setMaxSpeed(4 + r.nextInt(5));
-		    onix.setSpeed(onix.getMaxSpeed());
-		    onix.setMaxDefense(4 + r.nextInt(5));
-		    onix.setDefense(onix.getMaxDefense());
-		    onix.setMaxAttack(4 + r.nextInt(5));
-		    onix.setAttack(onix.getMaxAttack());
-		    onix.setMove(1,"ROCK TOMB");
-		    onix.setPP(1,15);
-		    onix.setMaxPP(1,15);
-		    hiker.setPokemon(onix,0);
-		    System.out.println(hiker + ": Scaling these rocks tires me out...but I've still got enough energy for a battle!");
-		    battle.trainerRoutine(player,hiker);
-		    if (player.getPokemon()[0].getHealth() > 0) {
-			System.out.println(hiker + ": Well, back to the cliffs...");
-			System.out.println(player + " got $250 for winning!");
+			System.out.println(bugcatcher + ": My bug life betrayed me...");
 			player.setMoney(player.getMoney() + 250);
 		    }
 		}
@@ -150,66 +132,73 @@ public class PewterCity {
 	    meters = meters - 50;
 	    System.out.println("You walked 50 meters.");
 	    if (meters <= 0) {
-		System.out.println("You have reached PEWTER CITY.");
+		System.out.println("You have reached AZALEA TOWN.");
 		walk(player,"street");
 	    } else {
-		System.out.println("You are " + meters + " meters from PEWTER CITY.");
+		System.out.println("You are " + meters + " meters from AZALEA TOWN.");
 		int rand = r.nextInt(6);
 		if (rand == 0) {
-		    Geodude geodude = new Geodude();
-		    battle.wildRoutine(player,geodude);
+		    Scyther scyther = new Scyther();
+		    scyther.setLevel(10);
+		    scyther.setMaxHealth(30 + r.nextInt(5));
+		    scyther.setHealth(scyther.getMaxHealth());
+		    scyther.setMaxSpeed(20 + r.nextInt(5));
+		    scyther.setSpeed(scyther.getMaxSpeed());
+		    scyther.setMaxDefense(20 + r.nextInt(5));
+		    scyther.setDefense(scyther.getMaxDefense());
+		    scyther.setMaxAttack(20 + r.nextInt(5));
+		    scyther.setMove(1,"FURY CUTTER");
+		    scyther.setPP(1,20);
+		    scyther.setMaxPP(1,20);
+		    battle.wildRoutine(player,scyther);
 		}
 		if (rand == 1) {
-		    Onix onix = new Onix();
-		    battle.wildRoutine(player,onix);
+		    Heracross heracross = new Heracross();
+		    heracross.setLevel(10);
+		    heracross.setMaxHealth(31 + r.nextInt(5));
+		    heracross.setHealth(heracross.getMaxHealth());
+		    heracross.setMaxSpeed(21 + r.nextInt(5));
+		    heracross.setSpeed(heracross.getMaxSpeed());
+		    heracross.setMaxDefense(21 + r.nextInt(5));
+		    heracross.setDefense(heracross.getMaxDefense());
+		    heracross.setMaxAttack(2 + r.nextInt(5));
+		    heracross.setMove(1,"HORN ATTACK");
+		    heracross.setPP(1,25);
+		    heracross.setMaxPP(1,25);
+		    battle.wildRoutine(player,heracross);
 		}
-		if (rand == 2) {
-		    Player hiker = new Player("RANDOM HIKER GUY");
-		    Geodude geodude = new Geodude();
-		    //Stats for Geodude
-		    geodude.setLevel(4);
-		    geodude.setMaxHealth(18 + r.nextInt(5));
-		    geodude.setHealth(geodude.getMaxHealth());
-		    geodude.setMaxSpeed(5 + r.nextInt(5));
-		    geodude.setSpeed(geodude.getMaxSpeed());
-		    geodude.setMaxDefense(5 + r.nextInt(5));
-		    geodude.setDefense(geodude.getMaxDefense());
-		    geodude.setMaxAttack(5 + r.nextInt(5));
-		    geodude.setAttack(geodude.getMaxAttack());
-		    geodude.setMove(1,"ROCK THROW");
-		    geodude.setPP(1,15);
-		    geodude.setMaxPP(1,15);
-		    hiker.setPokemon(geodude,0);
-		    System.out.println(hiker + ": Make sure you stay hydrated in these mountains...Let's battle to see how you're doing!");
-		    battle.trainerRoutine(player,hiker);
+		if (rand == 2 || rand == 3) {
+		    Player bugcatcher = new Player("RANDOM WEIRDO BUG CATCHER");
+		    Rattata rattata = new Rattata();
+		    Scyther scyther = new Scyther();
+		    //Stats for Rattata
+		    rattata.setLevel(11);
+		    rattata.setMaxHealth(27 + r.nextInt(10));
+		    rattata.setHealth(rattata.getMaxHealth());
+		    rattata.setMaxSpeed(27 + r.nextInt(10));
+		    rattata.setSpeed(rattata.getMaxSpeed());
+		    rattata.setMaxDefense(27 + r.nextInt(10));
+		    rattata.setDefense(rattata.getMaxDefense());
+		    rattata.setMaxAttack(27 + r.nextInt(10));
+		    rattata.setAttack(rattata.getMaxAttack());
+		    scyther.setLevel(12);
+		    scyther.setMaxHealth(35 + r.nextInt(5));
+		    scyther.setHealth(scyther.getMaxHealth());
+		    scyther.setMaxSpeed(25 + r.nextInt(5));
+		    scyther.setSpeed(scyther.getMaxSpeed());
+		    scyther.setMaxDefense(25 + r.nextInt(5));
+		    scyther.setDefense(scyther.getMaxDefense());
+		    scyther.setMaxAttack(25 + r.nextInt(5));
+		    scyther.setAttack(scyther.getMaxAttack());
+		    scyther.setMove(1,"FURY CUTTER");
+		    scyther.setPP(1,20);
+		    scyther.setMaxPP(1,20);
+		    bugcatcher.setPokemon(rattata,0);
+		    bugcatcher.setPokemon(scyther,1);
+		    System.out.println(bugcatcher + ": Boy I sure like catching bugs. And being weird. And battling.");
+		    battle.trainerRoutine(player,bugcatcher);
 		    if (player.getPokemon()[0].getHealth() > 0) {
-			System.out.println(hiker + ": Guess I didn't drink enough water...");
-			System.out.println(player + " got $250 for winning!");
-			player.setMoney(player.getMoney() + 250);
-		    }
-		}
-		if (rand == 3) {
-		    Player hiker = new Player("RANDOM CLIMBER WOMAN");
-		    Onix onix = new Onix();
-		    //Stats for Onix
-		    onix.setLevel(3);
-		    onix.setMaxHealth(17 + r.nextInt(5));
-		    onix.setHealth(onix.getMaxHealth());
-		    onix.setMaxSpeed(4 + r.nextInt(5));
-		    onix.setSpeed(onix.getMaxSpeed());
-		    onix.setMaxDefense(4 + r.nextInt(5));
-		    onix.setDefense(onix.getMaxDefense());
-		    onix.setMaxAttack(4 + r.nextInt(5));
-		    onix.setAttack(onix.getMaxAttack());
-		    onix.setMove(1,"ROCK TOMB");
-		    onix.setPP(1,15);
-		    onix.setMaxPP(1,15);
-		    hiker.setPokemon(onix,0);
-		    System.out.println(hiker + ": Scaling these rocks tires me out...but I've still got enough energy for a battle!");
-		    battle.trainerRoutine(player,hiker);
-		    if (player.getPokemon()[0].getHealth() > 0) {
-			System.out.println(hiker + ": Well, back to the cliffs...");
-			System.out.println(player + " got $250 for winning!");
+			System.out.println(bugcatcher + ": My bug life betrayed me...");
 			player.setMoney(player.getMoney() + 250);
 		    }
 		}
@@ -284,74 +273,62 @@ public class PewterCity {
     }
 
     public String gym(Player player) {
-	if (player.getBadges()[0] != null) {
-	    System.out.println("BROCK: Stay sturdy in your training, " + player + "! That BOULDER BADGE is a symbol of your fortitude!" );
-	    walk(player,"brock's gym");
+	if (player.getBadges()[2] != null) {
+	    System.out.println("BUGSY: Be agile, be quick, and you will always be successful, " + player + "." );
+	    walk(player,"bugsy's gym");
 	} else {
-	    System.out.println("BROCK: Hello there! I'm BROCK, the leader of the PEWTER CITY GYM!");
-	    System.out.println("BROCK: Rock POKEMON exemplify what we should strive to be: tough, determined, made of minerals and small sand particles - er, forget that last part.");
-	    System.out.println("BROCK: Do you think you have what it takes to earn the BOULDER BADGE? Are you hardy enough to take me on?");
+	    System.out.println("BUGSY: I am BUGSY, leader of the gym of AZALEA TOWN.");
+	    System.out.println("BUGSY: BUG POKEMON are extremely misunderstood. They are not vermin, but strong, helpful, resourceful creatures. We have much to learn from them.");
+	    System.out.println("BUGSY: Hmm? You want the HIVE BADGE? Are you ready to take on the cunning of my BUG POKEMON?");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("yes")) {
-		System.out.println("BROCK: Alright then! Let's go! I'll pound you! - er, I mean - let's just battle.");
-		Player brock = new Player("BROCK");
-		Geodude geodude0 = new Geodude();
-		Geodude geodude1 = new Geodude();
-		Onix onix = new Onix();
-		geodude0.setLevel(5);
-		geodude0.setMaxHealth(20);
-		geodude0.setHealth(geodude0.getMaxHealth());
-		geodude0.setMaxSpeed(10);
-		geodude0.setSpeed(geodude0.getMaxSpeed());
-		geodude0.setMaxDefense(10);
-		geodude0.setDefense(geodude0.getMaxDefense());
-		geodude0.setMaxAttack(10);
-		geodude0.setAttack(geodude0.getMaxAttack());
-		geodude0.setMove(1,"ROCK THROW");
-		geodude0.setPP(1,15);
-		geodude0.setMaxPP(1,15);
-		geodude1.setLevel(5);
-		geodude1.setMaxHealth(25);
-		geodude1.setHealth(geodude1.getMaxHealth());
-		geodude1.setMaxSpeed(12);
-		geodude1.setSpeed(geodude1.getMaxSpeed());
-		geodude1.setMaxDefense(12);
-		geodude1.setDefense(geodude1.getMaxDefense());
-		geodude1.setMaxAttack(12);
-		geodude1.setAttack(geodude1.getMaxAttack());
-		geodude1.setMove(1,"ROCK THROW");
-		geodude1.setPP(1,15);
-		geodude1.setMaxPP(1,15);
-		onix.setLevel(6);
-		onix.setMaxHealth(26);
-		onix.setHealth(onix.getMaxHealth());
-		onix.setMaxSpeed(10);
-		onix.setSpeed(onix.getMaxSpeed());
-		onix.setMaxDefense(15);
-		onix.setDefense(onix.getMaxDefense());
-		onix.setMaxAttack(15);
-		onix.setAttack(onix.getMaxAttack());
-		onix.setMove(1,"ROCK TOMB");
-		onix.setPP(1,15);
-		onix.setMaxPP(1,15);
-		onix.setMove(2,"SMACK DOWN");
-		onix.setPP(2,15);
-		onix.setMaxPP(2,15);
-		brock.setPokemon(geodude0,0);
-		brock.setPokemon(geodude1,1);
-		battle.trainerRoutine(player,brock);
+		System.out.println("BUGSY: Then let us commence.");
+		Player bugsy = new Player("BUGSY");
+		Scyther scyther = new Scyther();
+		Heracross heracross = new Heracross();
+		scyther.setLevel(18);
+		scyther.setMaxHealth(58);
+		scyther.setHealth(scyther.getMaxHealth());
+		scyther.setMaxSpeed(48);
+		scyther.setSpeed(scyther.getMaxSpeed());
+		scyther.setMaxDefense(44);
+		scyther.setDefense(scyther.getMaxDefense());
+		scyther.setMaxAttack(44);
+		scyther.setMove(1,"FURY CUTTER");
+		scyther.setPP(1,20);
+		scyther.setMaxPP(1,20);
+		scyther.setMove(2,"X-SCISSOR");
+		scyther.setPP(2,15);
+		scyther.setMaxPP(2,15);
+		heracross.setLevel(21);
+		heracross.setMaxHealth(65);
+		heracross.setHealth(heracross.getMaxHealth());
+		heracross.setMaxSpeed(59);
+		heracross.setSpeed(heracross.getMaxSpeed());
+		heracross.setMaxDefense(56);
+		heracross.setDefense(heracross.getMaxDefense());
+		heracross.setMaxAttack(58);
+		heracross.setMove(1,"HORN ATTACK");
+		heracross.setPP(1,25);
+		heracross.setMaxPP(1,25);
+		heracross.setMove(2,"MEGAHORN");
+		heracross.setPP(2,10);
+		heracross.setMaxPP(2,10);
+		bugsy.setPokemon(scyther,0);
+		bugsy.setPokemon(heracross,1);
+		battle.trainerRoutine(player,bugsy);
 		if (player.getPokemon()[0].getHealth() > 0) {
 		    player.setMoney(player.getMoney() + 1000);
 		    System.out.println(player + " got $1000 for winning!");
-		    System.out.println("BROCK: Wow, you beat me! You ready are strong. Here, take the BOULDER BADGE!");
-		    player.setBadges("BOULDER BADGE",0);
-		    System.out.println("BROCK: Don't stop training, kid! You'll go far.");
+		    System.out.println("BUGSY: You have proven yourself even more clever than my BUG POKEMON. You have earned the HIVE BADGE");
+		    player.setBadges("HIVE BADGE",2);
+		    System.out.println("BUGSY: As long as you continue on your path, you can only get stronger.");
 		}
-		walk(player,"brock's gym");
+		walk(player,"bugsy's gym");
 	    } else {
-		System.out.println("BROCK: I'll see you next time then, when you HARD-en up to it. Har har har!");
-		walk(player,"brock's gym");
+		System.out.println("BUGSY: Very well then.");
+		walk(player,"bugsy's gym");
 	    }
 	}
 	return "";
@@ -431,7 +408,7 @@ public class PewterCity {
     public String walk(Player player, String source) {
 	if (source.equals("street")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   POKEMART   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
+	    System.out.println("POKEMON CENTER   POKEMART   BUGSY'S GYM   CERULEAN CITY   SWAMPGROUND");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -440,15 +417,11 @@ public class PewterCity {
 	    if (s.equals("pokemart")) {
 		pokemart(player);
 	    }
-	    if (s.equals("brock's gym")) {
+	    if (s.equals("bugsy's gym")) {
 		gym(player);
 	    }
-	    if (s.equals("pallet town")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
-	    }
-	    if (s.equals("rocky rock training place")) {
-		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
+	    if (s.equals("swampground")) {
+		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
 	    }
 	    if (etc(player,source,s)) {
@@ -457,9 +430,9 @@ public class PewterCity {
 	    walk(player,source);
 	    }
 	}
-	if (source.equals("brock's gym")) {
+	if (source.equals("bugsy's gym")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   POKEMART   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
+	    System.out.println("POKEMON CENTER   POKEMART   CERULEAN CITY   SWAMPGROUND");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -468,12 +441,8 @@ public class PewterCity {
 	    if (s.equals("pokemart")) {
 		pokemart(player);
 	    } 
-	    if (s.equals("pallet town")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
-	    }
-	    if (s.equals("rocky rock training place")) {
-		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, a place with rocky rocks where you can train. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
+	    if (s.equals("swampground")) {
+		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
 	    }
 	    if (etc(player,source,s)) {
@@ -484,7 +453,7 @@ public class PewterCity {
 	}
 	if (source.equals("pokemon center")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("PC   POKEMART   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY   SAVE");
+	    System.out.println("PC   POKEMART   BUGSY'S GYM   CERULEAN CITY   SWAMPGROUND   SAVE");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pc")) {
@@ -499,15 +468,11 @@ public class PewterCity {
 	    if (s.equals("pokemart")) {
 		pokemart(player);
 	    }
-	    if (s.equals("brock's gym")) {
+	    if (s.equals("bugsy's gym")) {
 		gym(player);
 	    }
-	    if (s.equals("pallet town")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
-	    }
-	    if (s.equals("rocky rock training place")) {
-		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
+	    if (s.equals("swampground")) {
+		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
 	    }
 	    if (s.equals("save")) {
@@ -568,21 +533,17 @@ public class PewterCity {
 	}
 	if (source.equals("pokemart")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   BROCK'S GYM   PALLET TOWN   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
+	    System.out.println("POKEMON CENTER   BUGSY'S GYM   CERULEAN CITY   SWAMPGROUND");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
 		pokemoncenter(player);
 	    }
-	    if (s.equals("brock's gym")) {
+	    if (s.equals("bugsy's gym")) {
 		gym(player);
 	    }
-	    if (s.equals("pallet town")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
-	    }
-	    if (s.equals("rocky rock training place")) {
-		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
+	    if (s.equals("swampground")) {
+		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
 	    }
 	    if (etc(player,source,s)) {
