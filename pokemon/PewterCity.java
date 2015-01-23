@@ -81,6 +81,19 @@ public class PewterCity {
 		if (rand == 2) {
 		    Player hiker = new Player("RANDOM HIKER GUY");
 		    Geodude geodude = new Geodude();
+		    //Stats for Geodude
+		    geodude.setLevel(4);
+		    geodude.setMaxHealth(18 + r.nextInt(5));
+		    geodude.setHealth(geodude.getMaxHealth());
+		    geodude.setMaxSpeed(5 + r.nextInt(5));
+		    geodude.setSpeed(geodude.getMaxSpeed());
+		    geodude.setMaxDefense(5 + r.nextInt(5));
+		    geodude.setDefense(geodude.getMaxDefense());
+		    geodude.setMaxAttack(5 + r.nextInt(5));
+		    geodude.setAttack(geodude.getMaxAttack());
+		    geodude.setMove(1,"ROCK THROW");
+		    geodude.setPP(1,15);
+		    geodude.setMaxPP(1,15);
 		    hiker.setPokemon(geodude,0);
 		    System.out.println(hiker + ": Make sure you stay hydrated in these mountains...Let's battle to see how you're doing!");
 		    battle.trainerRoutine(player,hiker);
@@ -92,6 +105,19 @@ public class PewterCity {
 		if (rand == 3) {
 		    Player hiker = new Player("RANDOM CLIMBER WOMAN");
 		    Geodude geodude = new Geodude();
+		    //Stats for Geodude
+		    geodude.setLevel(3);
+		    geodude.setMaxHealth(17 + r.nextInt(5));
+		    geodude.setHealth(geodude.getMaxHealth());
+		    geodude.setMaxSpeed(4 + r.nextInt(5));
+		    geodude.setSpeed(geodude.getMaxSpeed());
+		    geodude.setMaxDefense(4 + r.nextInt(5));
+		    geodude.setDefense(geodude.getMaxDefense());
+		    geodude.setMaxAttack(4 + r.nextInt(5));
+		    geodude.setAttack(geodude.getMaxAttack());
+		    geodude.setMove(1,"ROCK THROW");
+		    geodude.setPP(1,15);
+		    geodude.setMaxPP(1,15);
 		    hiker.setPokemon(geodude,0);
 		    System.out.println(hiker + ": Scaling these rocks tires me out...but I've still got enough energy for a battle!");
 		    battle.trainerRoutine(player,hiker);
