@@ -291,6 +291,10 @@ public abstract class BaseChar implements Serializable {
 	return true;
     }
 
+    public void evolve(Player player) {
+
+    }
+
     public String moveset() {
 	String s = moves[0] + " " + PP[0] + "/" + maxPP[0];
 	if (moves[1] != null) {

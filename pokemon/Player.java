@@ -4,6 +4,7 @@ import java.io.*;
 public class Player implements Serializable {
 
     private BaseChar[] pokemon = new BaseChar[6];
+    private ArrayList<BaseChar> PC = new ArrayList<BaseChar>();
     private String location;
     private String name;
     private String[] badges = new String[4];
@@ -34,6 +35,10 @@ public class Player implements Serializable {
 
     public BaseChar[] getPokemon(){
 	return pokemon;
+    }
+
+    public ArrayList<BaseChar> getPC() {
+	return PC;
     }
 
     public String getPokemonStatus() {
@@ -78,6 +83,10 @@ public class Player implements Serializable {
 
     public void setLocation(String loc){
 	location = loc;
+    }
+
+    public void addPC(BaseChar pokemon) {
+	PC.add(pokemon);
     }
     
     public void setPokemon(BaseChar poke, int pos){

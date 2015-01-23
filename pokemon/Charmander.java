@@ -52,6 +52,28 @@ public class Charmander extends Fire {
 	    }
 	}
     }
-    
+
+    public void evolve(Player player) {
+        if (getLevel() == 10) {
+	    System.out.println("What? " + this + " is evolving!");
+	    int a = 0;
+	    while (a<player.getPokemon().length && 
+		   !player.getPokemon()[a].toString().equals("CHARMANDER")) {
+		a = a + 1;
+	    }
+	    Charmander charmander = new Charmander();
+	    charmander.setMaxHealth(getMaxHealth());
+	    charmander.setMaxSpeed(getMaxSpeed());
+	    charmander.setMaxDefense(getMaxDefense());
+	    charmander.setMaxAttack(getMaxAttack());
+	    charmander.setHealth(getHealth());
+	    charmander.setSpeed(getSpeed());
+	    charmander.setDefense(getDefense());
+	    charmander.setAttack(getAttack());
+	    System.out.println("Congratulations! Your " + this + " evolved into " + charmander + "!");
+	    player.setPokemon(charmander,a);
+	}
+    }
+
 	 
 }

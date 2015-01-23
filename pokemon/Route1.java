@@ -23,7 +23,7 @@ public class Route1 {
 		pewtercity.routine(player);
 	    }
 	    System.out.println("You are " + (1000 - meters) + " meters from PEWTER CITY. You are " + meters + " meters from PALLET TOWN.");
-	    int rand = r.nextInt(4);
+	    int rand = r.nextInt(2);
 	    if (rand == 0) {
 		Rattata rattata = new Rattata();
 		battle.wildRoutine(player,rattata);	    

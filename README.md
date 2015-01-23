@@ -16,6 +16,8 @@ apcs-finalproj: POKEMON
 - 1/17/15 Finished most of HomeTown and worked on Route1 WY
 - 1/18/15 Worked on Battle routine; what happens when you win/lose, finished save system WY
 
+OPPONENTS IN ROCKY ROCK
+
 ---add catching pokemon
 ---add switching pokemon
 ---add gym leader
@@ -25,7 +27,7 @@ add PC (in pokemon center)
 EVOLVING
 type wallet or something?
 "a place with rocky rocks where you can train"
-increase stats by stage
+---increase stats by stage
 =======
 - 1/20/15 Worked on Pewter City, taught Pokemon how to learn moves, fixed problems with damage and attack WY
 - 1/21/15 Worked on catching Pokemon, buying Pokeballs, money, and Pewter City gym WY

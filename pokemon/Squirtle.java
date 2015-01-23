@@ -55,5 +55,27 @@ public class Squirtle extends Water {
 	}
     }
 
+    public void evolve(Player player) {
+        if (getLevel() == 10) {
+	    System.out.println("What? " + this + " is evolving!");
+	    int a = 0;
+	    while (a<player.getPokemon().length && 
+		   !player.getPokemon()[a].toString().equals("SQUIRTLE")) {
+		a = a + 1;
+	    }
+	    Wartortle wartortle = new Wartortle();
+	    wartortle.setMaxHealth(getMaxHealth());
+	    wartortle.setMaxSpeed(getMaxSpeed());
+	    wartortle.setMaxDefense(getMaxDefense());
+	    wartortle.setMaxAttack(getMaxAttack());
+	    wartortle.setHealth(getHealth());
+	    wartortle.setSpeed(getSpeed());
+	    wartortle.setDefense(getDefense());
+	    wartortle.setAttack(getAttack());
+	    System.out.println("Congratulations! Your " + this + " evolved into " + wartortle + "!");
+	    player.setPokemon(wartortle,a);
+	}
+    }
+
 
 }

@@ -53,9 +53,9 @@ public class Bulbasaur extends Grass {
 	}
     }
 
-    
     public void evolve(Player player) {
-	if (getLevel() == 7) {
+        if (getLevel() == 10) {
+	    System.out.println("What? " + this + " is evolving!");
 	    int a = 0;
 	    while (a<player.getPokemon().length && 
 		   !player.getPokemon()[a].toString().equals("BULBASAUR")) {
@@ -70,6 +70,7 @@ public class Bulbasaur extends Grass {
 	    ivysaur.setSpeed(getSpeed());
 	    ivysaur.setDefense(getDefense());
 	    ivysaur.setAttack(getAttack());
+	    System.out.println("Congratulations! Your " + this + " evolved into " + ivysaur + "!");
 	    player.setPokemon(ivysaur,a);
 	}
     }
