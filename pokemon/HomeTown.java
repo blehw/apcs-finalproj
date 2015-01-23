@@ -110,7 +110,8 @@ public class HomeTown {
 	System.out.println("OAK: " + player + ", raise your POKEMON by training them! You can check on them at any time by typing 'POKEMON'.");
 	System.out.println("GOD-LIKE VOICE: And you can exit the game by typing 'EXIT GAME'.");
 	System.out.println("OAK: Hmm, did you hear something, " + player + "?");
-        walk(player,"prof. oak's lab");
+        System.out.println("GOD-LIKE VOICE: Well, while we're info dumping:\nTHROW POKEBALL: 'POKEBALL'\nSEE MONEY, BADGES, AND ITEMS: <PLAYER NAME>\nSWITCH POKEMON IN PARTY: 'SWITCH <# OF POKEMON TO BE SWITCHED> <#NUMBER OF POKEMON TO BE SWITCHED>'\nTAKE POKEMON OUT OF PC: 'PC SWITCH <# OF PARTY POKEMON> <# OF PC POKEMON>");
+	walk(player,"prof. oak's lab");
 	return "";
     }
 
