@@ -3,7 +3,7 @@ import java.util.*;
 public class Bulbasaur extends Grass {
 
     private Random r = new Random();
-1
+
     public Bulbasaur() {
 	setName("BULBASAUR");
     }

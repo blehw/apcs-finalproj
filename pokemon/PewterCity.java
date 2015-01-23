@@ -342,13 +342,11 @@ public class PewterCity {
 		brock.setPokemon(geodude1,1);
 		brock.setPokemon(onix,2);
 		battle.trainerRoutine(player,brock);
-		if (player.getPokemon()[0].getHealth() > 0) {
-		    player.setMoney(player.getMoney() + 1000);
-		    System.out.println(player + " got $1000 for winning!");
-		    System.out.println("BROCK: Wow, you beat me! You ready are strong. Here, take the BOULDER BADGE!");
-		    player.setBadges("BOULDER BADGE",0);
-		    System.out.println("BROCK: Don't stop training, kid! You'll go far.");
-		}
+		player.setMoney(player.getMoney() + 1000);
+		System.out.println(player + " got $1000 for winning!");
+		System.out.println("BROCK: Wow, you beat me! You ready are strong. Here, take the BOULDER BADGE!");
+		player.setBadges("BOULDER BADGE",0);
+		System.out.println("BROCK: Don't stop training, kid! You'll go far.");
 		walk(player,"brock's gym");
 	    } else {
 		System.out.println("BROCK: I'll see you next time then, when you HARD-en up to it. Har har har!");

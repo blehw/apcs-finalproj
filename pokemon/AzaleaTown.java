@@ -318,13 +318,11 @@ public class AzaleaTown {
 		bugsy.setPokemon(scyther,0);
 		bugsy.setPokemon(heracross,1);
 		battle.trainerRoutine(player,bugsy);
-		if (player.getPokemon()[0].getHealth() > 0) {
-		    player.setMoney(player.getMoney() + 1000);
-		    System.out.println(player + " got $1000 for winning!");
-		    System.out.println("BUGSY: You have proven yourself even more clever than my BUG POKEMON. You have earned the HIVE BADGE");
-		    player.setBadges("HIVE BADGE",2);
-		    System.out.println("BUGSY: As long as you continue on your path, you can only get stronger.");
-		}
+		player.setMoney(player.getMoney() + 1000);
+		System.out.println(player + " got $1000 for winning!");
+		System.out.println("BUGSY: You have proven yourself even more clever than my BUG POKEMON. You have earned the HIVE BADGE");
+		player.setBadges("HIVE BADGE",2);
+		System.out.println("BUGSY: As long as you continue on your path, you can only get stronger.");
 		walk(player,"bugsy's gym");
 	    } else {
 		System.out.println("BUGSY: Very well then.");

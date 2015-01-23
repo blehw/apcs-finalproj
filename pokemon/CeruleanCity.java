@@ -345,13 +345,11 @@ public class CeruleanCity {
 		misty.setPokemon(horsea,0);
 		misty.setPokemon(staryu,1);
 		battle.trainerRoutine(player,misty);
-		if (player.getPokemon()[0].getHealth() > 0) {
-		    player.setMoney(player.getMoney() + 1000);
-		    System.out.println(player + " got $1000 for winning!");
-		    System.out.println("MISTY: Woah, that really put a dampener on things. This here CASCADE BADGE is proof of your amazing flow!");
-		    player.setBadges("CASCADE BADGE",1);
-		    System.out.println("MISTY: Good luck on your journey, I hope you collect all the badges!");
-		}
+		player.setMoney(player.getMoney() + 1000);
+		System.out.println(player + " got $1000 for winning!");
+		System.out.println("MISTY: Woah, that really put a dampener on things. This here CASCADE BADGE is proof of your amazing flow!");
+		player.setBadges("CASCADE BADGE",1);
+		System.out.println("MISTY: Good luck on your journey, I hope you collect all the badges!");
 		walk(player,"misty's gym");
 	    } else {
 		System.out.println("MISTY: Sure, I'll give you some time to self-reflect.");
@@ -474,7 +472,7 @@ public class CeruleanCity {
 	}
 	if (source.equals("misty's gym")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN");
+	    System.out.println("POKEMON CENTER   POKEMART   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
