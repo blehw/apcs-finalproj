@@ -86,26 +86,33 @@ public class CeruleanCity {
 		System.out.println("You are " + meters + " meters from PEWTER CITY.");
 		int rand = r.nextInt(6);
 		if (rand <= 1) {
-		    Geodude geodude = new Geodude();
-		    battle.wildRoutine(player,geodude);
+		    Staryu staryu = new Staryu();
+		    battle.wildRoutine(player,staryu);
 		}
 		if (rand == 2) {
 		    Player swimmer = new Player("WATER-POLO PLAYER");
-		    Geodude geodude = new Geodude();
-		    //Stats for Geodude
-		    geodude.setLevel(4);
-		    geodude.setMaxHealth(18 + r.nextInt(5));
-		    geodude.setHealth(geodude.getMaxHealth());
-		    geodude.setMaxSpeed(5 + r.nextInt(5));
-		    geodude.setSpeed(geodude.getMaxSpeed());
-		    geodude.setMaxDefense(5 + r.nextInt(5));
-		    geodude.setDefense(geodude.getMaxDefense());
-		    geodude.setMaxAttack(5 + r.nextInt(5));
-		    geodude.setAttack(geodude.getMaxAttack());
-		    geodude.setMove(1,"ROCK THROW");
-		    geodude.setPP(1,15);
-		    geodude.setMaxPP(1,15);
-		    hiker.setPokemon(geodude,0);
+		    
+		    Staryu staryu = new Staryu();
+		    //Stats for Staryu
+		    staryu.setLevel(4);
+		    staryu.setMaxHealth(18 + r.nextInt(5));
+		    staryu.setHealth(staryu.getMaxHealth());
+		    staryu.setMaxSpeed(5 + r.nextInt(5));
+		    staryu.setSpeed(staryu.getMaxSpeed());
+		    staryu.setMaxDefense(5 + r.nextInt(5));
+		    staryu.setDefense(staryu.getMaxDefense());
+		    staryu.setMaxAttack(5 + r.nextInt(5));
+		    staryu.setAttack(staryu.getMaxAttack());
+		    staryu.setMove(1,"WATER GUN");
+		    staryu.setPP(1,25);
+		    staryu.setMaxPP(1,25);
+		    staryu.setMove(2, "GYRO BALL");
+		    staryu.setPP(2, 20);
+		    staryu.setMaxPP(2, 20);
+		    staryu.setMove(3, "BUBBLE BEAM");
+		    staryu.setPP(3, 20);
+		    staryu.setMaxPP(3, 20);
+		    swimmer.setPokemon(staryu,0);
 		    System.out.println(swimmer + ": I battle anyone named " + player + ". What's your name?");
 		    battle.trainerRoutine(player,swimmer);
 		    if (player.getPokemon()[0].getHealth() > 0) {
@@ -115,21 +122,25 @@ public class CeruleanCity {
 		}
 		if (rand == 3) {
 		    Player swimmer = new Player("RECREATION SEAHORSE ENTHUSIAST");
-		    Geodude geodude = new Geodude();
-		    //Stats for Geodude
-		    geodude.setLevel(3);
-		    geodude.setMaxHealth(17 + r.nextInt(5));
-		    geodude.setHealth(geodude.getMaxHealth());
-		    geodude.setMaxSpeed(4 + r.nextInt(5));
-		    geodude.setSpeed(geodude.getMaxSpeed());
-		    geodude.setMaxDefense(4 + r.nextInt(5));
-		    geodude.setDefense(geodude.getMaxDefense());
-		    geodude.setMaxAttack(4 + r.nextInt(5));
-		    geodude.setAttack(geodude.getMaxAttack());
-		    geodude.setMove(1,"ROCK THROW");
-		    geodude.setPP(1,15);
-		    geodude.setMaxPP(1,15);
-		    hiker.setPokemon(geodude,0);
+		   
+		    Horsea horsea = new Horsea();
+		    //Stats for Horsea
+		    horsea.setLevel(8);
+		    horsea.setMaxHealth(23 + r.nextInt(8));
+		    horsea.setHealth(horsea.getMaxHealth());
+		    horsea.setMaxSpeed(10 + r.nextInt(5));
+		    horsea.setSpeed(horsea.getMaxSpeed());
+		    horsea.setMaxDefense(10 + r.nextInt(5));
+		    horsea.setDefense(horsea.getMaxDefense());
+		    horsea.setMaxAttack(10 + r.nextInt(8));
+		    horsea.setAttack(horsea.getMaxAttack());
+		    horsea.setMove(1,"BUBBLE");
+		    horsea.setPP(1,30);
+		    horsea.setMaxPP(1,30);
+		    horsea.setMove(2,"BRINE");
+		    horsea.setPP(2,10);
+		    horsea.setMaxPP(2,10);
+		    swimmer.setPokemon(horsea,0);
 		    System.out.println(swimmer + ": How does a seahorse quickly get from one place to another? \n...\nHe scallops!");
 		    battle.trainerRoutine(player,swimmer);
 		    if (player.getPokemon()[0].getHealth() > 0) {
@@ -150,25 +161,31 @@ public class CeruleanCity {
 		System.out.println("You are " + meters + " meters from CERULEAN CITY.");
 		int rand = r.nextInt(6);
 		if (rand <= 1) {
-		    Geodude geodude = new Geodude();
-		    battle.wildRoutine(player,geodude);
+		    Horsea horsea = new Horsea();
+		    battle.wildRoutine(player,horsea);
 		}
 		if (rand == 2) {
 		    Player swimmer = new Player("WATER-POLO PLAYER");
 		    Staryu staryu = new Staryu();
-		    //Stats for Geodude
+		    //Stats for Staryu
 		    staryu.setLevel(4);
 		    staryu.setMaxHealth(18 + r.nextInt(5));
-		    staryu.setHealth(geodude.getMaxHealth());
+		    staryu.setHealth(staryu.getMaxHealth());
 		    staryu.setMaxSpeed(5 + r.nextInt(5));
-		    staryu.setSpeed(geodude.getMaxSpeed());
+		    staryu.setSpeed(staryu.getMaxSpeed());
 		    staryu.setMaxDefense(5 + r.nextInt(5));
-		    staryu.setDefense(geodude.getMaxDefense());
+		    staryu.setDefense(staryu.getMaxDefense());
 		    staryu.setMaxAttack(5 + r.nextInt(5));
-		    staryu.setAttack(geodude.getMaxAttack());
-		    staryu.setMove(1,"ROCK THROW");
-		    staryu.setPP(1,15);
-		    staryu.setMaxPP(1,15);
+		    staryu.setAttack(staryu.getMaxAttack());
+		    staryu.setMove(1,"WATER GUN");
+		    staryu.setPP(1,25);
+		    staryu.setMaxPP(1,25);
+		    staryu.setMove(2, "GYRO BALL");
+		    staryu.setPP(2, 20);
+		    staryu.setMaxPP(2, 20);
+		    staryu.setMove(3, "BUBBLE BEAM");
+		    staryu.setPP(3, 20);
+		    staryu.setMaxPP(3, 20);
 		    swimmer.setPokemon(staryu,0);
 		    System.out.println(swimmer + ": I battle anyone named " + player + ". What's your name?");
 		    battle.trainerRoutine(player,swimmer);
@@ -179,7 +196,7 @@ public class CeruleanCity {
 		}
 		if (rand == 3) {
 		    Player swimmer = new Player("RECREATION SEAHORSE ENTHUSIAST");
-		    Geodude geodude = new Geodude();
+		    Horsea horsea = new Horsea();
 		    //Stats for Horsea
 		    horsea.setLevel(8);
 		    horsea.setMaxHealth(23 + r.nextInt(8));
