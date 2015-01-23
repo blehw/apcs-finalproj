@@ -22,7 +22,7 @@ public class CeruleanCity {
 	return "";
     }
 
-        public String pokemoncenter(Player player) {
+    public String pokemoncenter(Player player) {
 	System.out.println("NURSE: Hello! Welcome to the POKEMON CENTER. We restore your POKEMON to full health, free of charge. Our health care system sure is great. Here, let me take care of your POKEMON.");
 	for (int i=0;i<player.getPokemon().length &&
 		 player.getPokemon()[i] != null;i++) {

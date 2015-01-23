@@ -340,6 +340,7 @@ public class PewterCity {
 		onix.setMaxPP(2,15);
 		brock.setPokemon(geodude0,0);
 		brock.setPokemon(geodude1,1);
+		brock.setPokemon(onix,2);
 		battle.trainerRoutine(player,brock);
 		if (player.getPokemon()[0].getHealth() > 0) {
 		    player.setMoney(player.getMoney() + 1000);
@@ -457,6 +458,7 @@ public class PewterCity {
 		    route2.routinePewter(player);
 		} else {
 		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		    walk(player,source);
 		}
 	    }
 	    if (etc(player,source,s)) {
@@ -490,6 +492,7 @@ public class PewterCity {
 		    route2.routinePewter(player);
 		} else {
 		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		    walk(player,source);
 		}
 	    }
 	    if (etc(player,source,s)) {
@@ -532,6 +535,7 @@ public class PewterCity {
 		    route2.routinePewter(player);
 		} else {
 		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		    walk(player,source);
 		}
 	    }
 	    if (s.equals("save")) {
@@ -615,6 +619,7 @@ public class PewterCity {
 		    route2.routinePewter(player);
 		} else {
 		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		    walk(player,source);
 		}
 	    }
 	    if (etc(player,source,s)) {

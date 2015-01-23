@@ -49,6 +49,7 @@ public class Squirtle extends Water {
 		a = a + 1;
 	    }
 	    Wartortle wartortle = new Wartortle();
+	    wartortle.setLevel(getLevel());
 	    wartortle.setMaxHealth(getMaxHealth());
 	    wartortle.setMaxSpeed(getMaxSpeed());
 	    wartortle.setMaxDefense(getMaxDefense());
@@ -57,7 +58,14 @@ public class Squirtle extends Water {
 	    wartortle.setSpeed(getSpeed());
 	    wartortle.setDefense(getDefense());
 	    wartortle.setAttack(getAttack());
+	    wartortle.setMove(1,"WATER GUN");
+	    wartortle.setPP(1,25);
+	    wartortle.setMaxPP(1,25);
+	    wartortle.setMove(1,"SURF");
+	    wartortle.setPP(2,15);
+	    wartortle.setMaxPP(2,15);
 	    System.out.println("Congratulations! Your " + this + " evolved into " + wartortle + "!");
+	    
 	    player.setPokemon(wartortle,a);
 	}
     }

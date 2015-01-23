@@ -3,7 +3,7 @@ import java.util.*;
 public class Bulbasaur extends Grass {
 
     private Random r = new Random();
-
+1
     public Bulbasaur() {
 	setName("BULBASAUR");
     }
@@ -51,6 +51,7 @@ public class Bulbasaur extends Grass {
 		a = a + 1;
 	    }
 	    Ivysaur ivysaur = new Ivysaur();
+	    ivysaur.setLevel(getLevel());
 	    ivysaur.setMaxHealth(getMaxHealth());
 	    ivysaur.setMaxSpeed(getMaxSpeed());
 	    ivysaur.setMaxDefense(getMaxDefense());
@@ -59,6 +60,12 @@ public class Bulbasaur extends Grass {
 	    ivysaur.setSpeed(getSpeed());
 	    ivysaur.setDefense(getDefense());
 	    ivysaur.setAttack(getAttack());
+	    ivysaur.setMove(1,"VINEWHIP");
+	    ivysaur.setPP(1,25);
+	    ivysaur.setMaxPP(1,25);
+	    ivysaur.setMove(1,"LEAF BLADE");
+	    ivysaur.setPP(2,15);
+	    ivysaur.setMaxPP(2,15);
 	    System.out.println("Congratulations! Your " + this + " evolved into " + ivysaur + "!");
 	    player.setPokemon(ivysaur,a);
 	}

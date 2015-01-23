@@ -50,17 +50,24 @@ public class Charmander extends Fire {
 		   !player.getPokemon()[a].toString().equals("CHARMANDER")) {
 		a = a + 1;
 	    }
-	    Charmander charmander = new Charmander();
-	    charmander.setMaxHealth(getMaxHealth());
-	    charmander.setMaxSpeed(getMaxSpeed());
-	    charmander.setMaxDefense(getMaxDefense());
-	    charmander.setMaxAttack(getMaxAttack());
-	    charmander.setHealth(getHealth());
-	    charmander.setSpeed(getSpeed());
-	    charmander.setDefense(getDefense());
-	    charmander.setAttack(getAttack());
-	    System.out.println("Congratulations! Your " + this + " evolved into " + charmander + "!");
-	    player.setPokemon(charmander,a);
+	    Charmeleon charmeleon = new Charmeleon();
+	    charmeleon.setLevel(getLevel());
+	    charmeleon.setMaxHealth(getMaxHealth());
+	    charmeleon.setMaxSpeed(getMaxSpeed());
+	    charmeleon.setMaxDefense(getMaxDefense());
+	    charmeleon.setMaxAttack(getMaxAttack());
+	    charmeleon.setHealth(getHealth());
+	    charmeleon.setSpeed(getSpeed());
+	    charmeleon.setDefense(getDefense());
+	    charmeleon.setAttack(getAttack());
+	    charmeleon.setMove(1,"EMBER");
+	    charmeleon.setPP(1,25);
+	    charmeleon.setMaxPP(1,25);
+	    charmeleon.setMove(1,"FLAMETHROWER");
+	    charmeleon.setPP(2,15);
+	    charmeleon.setMaxPP(2,15);
+	    System.out.println("Congratulations! Your " + this + " evolved into " + charmeleon + "!");
+	    player.setPokemon(charmeleon,a);
 	}
     }
 
