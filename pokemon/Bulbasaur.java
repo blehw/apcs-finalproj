@@ -13,11 +13,11 @@ public class Bulbasaur extends Grass {
     }
 
     public String leafblade(BaseChar opponent){
-	return moveMaker(opponent, "LEAFBLADE", "Grass", 80, 75);
+	return moveMaker(opponent, "LEAF BLADE", "Grass", 80, 75);
     }
 
     public String frenzyplant(BaseChar opponent){
-	return moveMaker(opponent, "FRENZYPLANT", "Grass", 120, 50);
+	return moveMaker(opponent, "FRENZY PLANT", "Grass", 120, 50);
     }
 
     public boolean useMove(String move, BaseChar opponent) {
@@ -25,11 +25,11 @@ public class Bulbasaur extends Grass {
 	    System.out.println("\n" + vinewhip(opponent));
 	    return true;
 	}
-	if (move.equals("leafblade")) {
+	if (move.equals("leaf blade")) {
 	    System.out.println("\n" + leafblade(opponent));
 	    return true;
 	}
-	if (move.equals("frenzyplant")) {
+	if (move.equals("frenzy plant")) {
 	    System.out.println("\n" + frenzyplant(opponent));
 	    return true;
 	}
@@ -43,14 +43,36 @@ public class Bulbasaur extends Grass {
 		n = n + 1;
 	    }
 	    if (n <= 4) {
-		System.out.println(this + " learned EMBER!");
-		setMove(n,"EMBER");
+		System.out.println(this + " learned VINEWHIP!");
+		setMove(n,"VINEWHIP");
 		setPP(n,25);
 		setMaxPP(n,25);
 	    } else {
-		System.out.println(this + " wants to learn EMBER! However, " + this + " already knows four moves. Delete to a move to make room for EMBER?");
+		System.out.println(this + " wants to learn VINEWHIP! However, " + this + " already knows four moves. Delete to a move to make room for VINEWHIP?");
 	    }
 	}
     }
+
+    
+    public void evolve(Player player) {
+	if (getLevel() == 7) {
+	    int a = 0;
+	    while (a<player.getPokemon().length && 
+		   !player.getPokemon()[a].toString().equals("BULBASAUR")) {
+		a = a + 1;
+	    }
+	    Ivysaur ivysaur = new Ivysaur();
+	    ivysaur.setMaxHealth(getMaxHealth());
+	    ivysaur.setMaxSpeed(getMaxSpeed());
+	    ivysaur.setMaxDefense(getMaxDefense());
+	    ivysaur.setMaxAttack(getMaxAttack());
+	    ivysaur.setHealth(getHealth());
+	    ivysaur.setSpeed(getSpeed());
+	    ivysaur.setDefense(getDefense());
+	    ivysaur.setAttack(getAttack());
+	    player.setPokemon(ivysaur,a);
+	}
+    }
+    
 
 }      

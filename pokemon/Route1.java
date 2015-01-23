@@ -90,7 +90,7 @@ public class Route1 {
 		PewterCity pewtercity = new PewterCity();
 		pewtercity.routine(player);
 	    }
-	    System.out.println("You are " + meters + " meters from PEWTER CITY. You are " + (1000 -meters) + " from PALLET TOWN");
+	    System.out.println("You are " + meters + " meters from PEWTER CITY. You are " + (1000 -meters) + " meters from PALLET TOWN.");
 	    int rand = r.nextInt(4);
 	    if (rand == 0) {
 		Rattata rattata = new Rattata();

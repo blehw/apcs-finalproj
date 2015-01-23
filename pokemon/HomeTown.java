@@ -141,6 +141,70 @@ public class HomeTown {
 	return "";
     }
 
+    public boolean etc(Player player, String source, String s) {
+	if (s.equals("pokemon")) {
+	    System.out.println(player.getPokemonStatus());
+	    walk(player,source);
+	    return true;
+	}
+	if (s.equals("exit game")) {
+	    System.exit(0);
+	    return true;
+	}
+	if (s.equals(player.toString().toLowerCase())) {
+	    System.out.println("MONEY: $" + player.getMoney() + "\n");
+	    System.out.println(player.seeBadges());
+	    System.out.println("BAG: ");
+	    for (int i=0;i<player.getBag().length &&
+		     player.getBag()[i] != null;i++) {
+		System.out.println(player.getBag()[i] + " " + 
+				   player.getBagNum()[i]);
+	    }
+	    if (player.getBag()[0] == null) {
+		System.out.println("Your bag is empty!");
+	    }
+	    walk(player,source);
+	    return true;
+	}
+	if (s.contains("switch") && s.length() == 10) {
+	    String switch1 = s.substring(7,8);
+	    String switch2 = s.substring(9,10);
+	    int a = Integer.parseInt(switch1);
+	    int b = Integer.parseInt(switch2);
+	    if ((switch1.equals("1") ||
+		 switch1.equals("2") ||
+		 switch1.equals("3") ||
+		 switch1.equals("4") ||
+		 switch1.equals("5") ||
+		 switch1.equals("6") ||
+		 switch2.equals("1") ||
+		 switch2.equals("2") ||
+		 switch2.equals("3") ||
+		 switch2.equals("4") ||
+		 switch2.equals("5") ||
+		 switch2.equals("6")) &&
+		!(switch1.equals(switch2)) &&
+		!(player.getPokemon()[a-1] == null) &&
+		!(player.getPokemon()[b-1] == null)) {  
+		int s1 = Integer.parseInt(switch1) - 1;
+		int s2 = Integer.parseInt(switch2) - 1;
+		BaseChar poke1 = player.getPokemon()[s1];
+		BaseChar poke2 = player.getPokemon()[s2];
+		player.setPokemon(poke1,s2);
+		player.setPokemon(poke2,s1);
+		System.out.println(player.getPokemonStatus());
+		walk(player,source);
+		return true;
+	    } else {
+		System.out.println("You can't switch those POKEMON!");
+		walk(player,source);
+		return true;
+	    }
+	} else {
+	    return false;
+	}
+    }
+
     public String walk(Player player, String source) {
 	if (source.equals("street")) {
 	    player.setLocation("Pallet Town");
@@ -157,14 +221,9 @@ public class HomeTown {
 	    if (s.equals("pewter city")) {
 		Route1 route1 = new Route1();
 		route1.routinePallet(player);
-	    } 
-	    if (s.equals("pokemon")) {
-		System.out.println(player.getPokemonStatus());
-		walk(player,source);
-	    }
-	    if (s.equals("exit game")) {
-		System.exit(0);
-	    } else {
+	    }  
+	    if (etc(player,source,s)) {
+	    }else {
 		System.out.println("You can't go there!");
 		walk(player,source);
 	    }
@@ -181,10 +240,6 @@ public class HomeTown {
 		Route1 route1 = new Route1();
 		route1.routinePallet(player);
 	    } 
-	    if (s.equals("pokemon")) {
-		System.out.println(player.getPokemonStatus());
-		walk(player,source);
-	    }
 	    if (s.equals("save")) {
 		try {
 		    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("save.dat"));
@@ -196,8 +251,7 @@ public class HomeTown {
 		    ex.printStackTrace();
 		}
 	    } 
-	    if (s.equals("exit game")) {
-		System.exit(0);
+	    if (etc(player,source,s)) {
 	    } else {
 		System.out.println("You can't go there!");
 		walk(player,source);
@@ -220,12 +274,7 @@ public class HomeTown {
 		    walk(player,source);
 		}
 	    } 
-	    if (s.equals("pokemon")) {
-		System.out.println(player.getPokemonStatus());
-		walk(player,source);
-	    } 
-	    if (s.equals("exit game")) {
-		System.exit(0);
+	    if (etc(player,source,s)) {
 	    } else {
 		System.out.println("You can't go there!");
 		walk(player,source);

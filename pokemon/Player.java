@@ -52,12 +52,15 @@ public class Player implements Serializable {
     public String seeBadges(){
 	String s;
 	s = "You have the ";
-	int i = 0;
-	while (badges[i+1] != null){
-	    s = s + badges[i] + ", ";
-	    i++;
+	if (badges[0] == null) {
+	    return "You have no badges yet.";
+	} else {
+	    int i = 0;
+	    while (badges[i] != null){
+		s = s + badges[i] + ".\n";
+		i++;
+	    }
 	}
-	s = s + "and " + badges[i] + "badge.";
 	return s;
     }
     
