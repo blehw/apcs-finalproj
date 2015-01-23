@@ -4,6 +4,7 @@ import java.util.*;
 public abstract class BaseChar implements Serializable {
 
     private int stage;
+    private boolean caught;
     private int level;
     private int experience;
     private int maxhealth;
@@ -24,6 +25,7 @@ public abstract class BaseChar implements Serializable {
     private Random r = new Random();
 
     public BaseChar() {
+	caught = false;
 	level = 1;
 	experience = 0;
 	maxhealth = 20;
@@ -112,6 +114,10 @@ public abstract class BaseChar implements Serializable {
 	return stage;
     }
 
+    public boolean getCaught() {
+	return caught;
+    }
+
     public void setLevel(int value) {
 	level = value;
     }
@@ -182,6 +188,10 @@ public abstract class BaseChar implements Serializable {
 
     public void setStage(int s){
 	stage = s;
+    }
+
+    public void setCaught(boolean value) {
+	caught = value;
     }
 
     public String status(){
