@@ -15,7 +15,7 @@ public class Scyther extends Bug {
     }
 
     public boolean useMove(String move, BaseChar opponent) {
-	if (move.equals("furry cutter")) {
+	if (move.equals("fury cutter")) {
 	    System.out.println("\n" + furrycutter(opponent));
 	    return true;
 	}
@@ -27,7 +27,7 @@ public class Scyther extends Bug {
     }
 
     public void learnMoves(){
-        moveLearner("FURRY CUTTER",8,20);
+        moveLearner("FURY CUTTER",8,20);
 	moveLearner("X-SCISSOR",16,15);
     }
 
