@@ -420,6 +420,10 @@ public class AzaleaTown {
 	    if (s.equals("bugsy's gym")) {
 		gym(player);
 	    }
+	    if (s.equals("cerulean city")) {
+		Route3 route3 = new Route3();
+		route3.routineAzalea(player);
+	    }
 	    if (s.equals("swampground")) {
 		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
@@ -441,6 +445,10 @@ public class AzaleaTown {
 	    if (s.equals("pokemart")) {
 		pokemart(player);
 	    } 
+	    if (s.equals("cerulean city")) {
+		Route3 route3 = new Route3();
+		route3.routineAzalea(player);
+	    }
 	    if (s.equals("swampground")) {
 		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
 		training(player);
@@ -470,6 +478,10 @@ public class AzaleaTown {
 	    }
 	    if (s.equals("bugsy's gym")) {
 		gym(player);
+	    }
+	    if (s.equals("cerulean city")) {
+		Route3 route3 = new Route3();
+		route3.routineAzalea(player);
 	    }
 	    if (s.equals("swampground")) {
 		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");
@@ -541,6 +553,10 @@ public class AzaleaTown {
 	    }
 	    if (s.equals("bugsy's gym")) {
 		gym(player);
+	    }
+	    if (s.equals("cerulean city")) {
+		Route3 route3 = new Route3();
+		route3.routineAzalea(player);
 	    }
 	    if (s.equals("swampground")) {
 		System.out.println("You enter the SWAMPGROUND, a damp, dark place.");

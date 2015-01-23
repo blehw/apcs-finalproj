@@ -17,7 +17,7 @@ public class CeruleanCity {
 
     public String routine(Player player) {
 	player.setLocation("Cerulean City");	
-	System.out.println("You have reached CERULEAN CITY");
+	System.out.println("You have reached CERULEAN CITY.");
 	walk(player,"street");
 	return "";
     }
@@ -295,8 +295,8 @@ public class CeruleanCity {
 
     //MISTY'S GYM
     public String gym(Player player) {
-	if (player.getBadges()[0] != null) {
-	    System.out.println( );
+	if (player.getBadges()[1] != null) {
+	    System.out.println("MISTY: Heya! Make sure you swim every day to keep yourself limber! Good luck on your POKEMON journey!");
 	    walk(player,"misty's gym");
 	} else {
 	    System.out.println("MISTY: Heyya! I'm MISTY, leader of the CERULEAN CITY GYM!");
@@ -349,7 +349,7 @@ public class CeruleanCity {
 		    player.setMoney(player.getMoney() + 1000);
 		    System.out.println(player + " got $1000 for winning!");
 		    System.out.println("MISTY: Woah, that really put a dampener on things. This here CASCADE BADGE is proof of your amazing flow!");
-		    player.setBadges("CASCADE",1);
+		    player.setBadges("CASCADE BADGE",1);
 		    System.out.println("MISTY: Good luck on your journey, I hope you collect all the badges!");
 		}
 		walk(player,"misty's gym");
@@ -438,7 +438,7 @@ public class CeruleanCity {
     public String walk(Player player, String source) {
 	if (source.equals("street")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   NEXT CITY");
+	    System.out.println("POKEMON CENTER   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -451,8 +451,16 @@ public class CeruleanCity {
 		gym(player);
 	    }
 	    if (s.equals("pewter city")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
+		Route2 route2 = new Route2();
+		route2.routineCerulean(player);
+	    }
+	    if (s.equals("azalea town")) {
+		if (player.getBadges()[1] != null) { 
+		    Route3 route3 = new Route3();
+		    route3.routineCerulean(player);
+		} else {
+		    System.out.println("You need the CASCADE BADGE before you can go on!");
+		}
 	    }
 	    if (s.equals("poolside training place")) {
 		System.out.println("You enter the POOLSIDE TRAINING PLACE.");
@@ -466,7 +474,7 @@ public class CeruleanCity {
 	}
 	if (source.equals("misty's gym")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   POKEMART   MISTY'S GYM   PEWTER CITY   ROCKY ROCK TRAINING PLACE   CERULEAN CITY");
+	    System.out.println("POKEMON CENTER   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -476,8 +484,16 @@ public class CeruleanCity {
 		pokemart(player);
 	    } 
 	    if (s.equals("pewter city")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
+		Route2 route2 = new Route2();
+		route2.routineCerulean(player);
+	    }
+	    if (s.equals("azalea town")) {
+		if (player.getBadges()[1] != null) { 
+		    Route3 route3 = new Route3();
+		    route3.routineCerulean(player);
+		} else {
+		    System.out.println("You need the CASCADE BADGE before you can go on!");
+		}
 	    }
 	    if (s.equals("poolside training place")) {
 		System.out.println("You enter the POOLSIDE TRAINING PLACE.");
@@ -491,7 +507,7 @@ public class CeruleanCity {
 	}
 	if (source.equals("pokemon center")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("PC   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   NEXT CITY   SAVE");
+	    System.out.println("PC   POKEMART   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN   SAVE");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pc")) {
@@ -510,8 +526,16 @@ public class CeruleanCity {
 		gym(player);
 	    }
 	    if (s.equals("pewter city")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
+		Route2 route2 = new Route2();
+		route2.routineCerulean(player);
+	    }
+	    if (s.equals("azalea town")) {
+		if (player.getBadges()[1] != null) { 
+		    Route3 route3 = new Route3();
+		    route3.routineCerulean(player);
+		} else {
+		    System.out.println("You need the CASCADE BADGE before you can go on!");
+		}
 	    }
 	    if (s.equals("poolside training place")) {
 		System.out.println("You enter the POOLSIDE TRAINING PLACE.");
@@ -575,7 +599,7 @@ public class CeruleanCity {
 	}
 	if (source.equals("pokemart")) {
 	    System.out.println("Where do you want to go?");
-	    System.out.println("POKEMON CENTER   MISTY'S GYM   PEWTER CITY   ROCKY ROCK TRAINING PLACE   NEXT CITY");
+	    System.out.println("POKEMON CENTER   MISTY'S GYM   PEWTER CITY   POOLSIDE TRAINING PLACE   AZALEA TOWN");
 	    s = scan.nextLine();
 	    s = s.toLowerCase();
 	    if (s.equals("pokemon center")) {
@@ -585,8 +609,16 @@ public class CeruleanCity {
 		gym(player);
 	    }
 	    if (s.equals("pewter city")) {
-		Route1 route1 = new Route1();
-		route1.routinePewter(player);
+		Route2 route2 = new Route2();
+		route2.routineCerulean(player);
+	    }
+	    if (s.equals("azalea town")) {
+		if (player.getBadges()[1] != null) { 
+		    Route3 route3 = new Route3();
+		    route3.routineCerulean(player);
+		} else {
+		    System.out.println("You need the CASCADE BADGE before you can go on!");
+		}
 	    }
 	    if (s.equals("poolside training place")) {
 		System.out.println("You enter the POOLSIDE TRAINING PLACE.");

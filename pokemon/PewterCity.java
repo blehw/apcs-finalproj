@@ -451,6 +451,14 @@ public class PewterCity {
 		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
 		training(player);
 	    }
+	    if (s.equals("cerulean city")) {
+	        if (player.getBadges()[0] != null) { 
+		    Route2 route2 = new Route2();
+		    route2.routinePewter(player);
+		} else {
+		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		}
+	    }
 	    if (etc(player,source,s)) {
 	    } else {
 	    System.out.println("You can't go there!");
@@ -475,6 +483,14 @@ public class PewterCity {
 	    if (s.equals("rocky rock training place")) {
 		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, a place with rocky rocks where you can train. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
 		training(player);
+	    }
+	    if (s.equals("cerulean city")) {
+	        if (player.getBadges()[0] != null) { 
+		    Route2 route2 = new Route2();
+		    route2.routinePewter(player);
+		} else {
+		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		}
 	    }
 	    if (etc(player,source,s)) {
 	    } else {
@@ -509,6 +525,14 @@ public class PewterCity {
 	    if (s.equals("rocky rock training place")) {
 		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
 		training(player);
+	    }
+	    if (s.equals("cerulean city")) {
+		if (player.getBadges()[0] != null) { 
+		    Route2 route2 = new Route2();
+		    route2.routinePewter(player);
+		} else {
+		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		}
 	    }
 	    if (s.equals("save")) {
 		try {
@@ -584,6 +608,14 @@ public class PewterCity {
 	    if (s.equals("rocky rock training place")) {
 		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
 		training(player);
+	    }
+	    if (s.equals("cerulean city")) {
+	        if (player.getBadges()[0] != null) { 
+		    Route2 route2 = new Route2();
+		    route2.routinePewter(player);
+		} else {
+		    System.out.println("You need the BOULDER BADGE before you can go on!");
+		}
 	    }
 	    if (etc(player,source,s)) {
 	    } else {

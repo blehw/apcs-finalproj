@@ -21,6 +21,14 @@ public class Driver implements Serializable {
 		PewterCity pewtercity = new PewterCity();
 		System.out.println(pewtercity.walk(player,"pokemon center"));
 	    }	    
+	    if (player.getLocation().equals("Cerulean City")) {
+		CeruleanCity ceruleancity = new CeruleanCity();
+		System.out.println(ceruleancity.walk(player,"pokeon center"));
+	    }
+	    if (player.getLocation().equals("Azalea Town")) {
+		AzaleaTown azaleatown = new AzaleaTown();
+		System.out.println(azaleatown.walk(player,"pokeon center"));
+	    }
         } catch (IOException e) {
 	    //intro courtesy of http://www.supercheats.com/gameboy/walkthroughs/pokemonred-walkthrough09.txt
 	    System.out.println("Hello there! Welcome to the world of POKEMON! My name is OAK! People call me the POKEMON PROF!");
