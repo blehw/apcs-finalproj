@@ -63,7 +63,7 @@ public class Bulbasaur extends Grass {
 	    ivysaur.setMove(1,"VINEWHIP");
 	    ivysaur.setPP(1,25);
 	    ivysaur.setMaxPP(1,25);
-	    ivysaur.setMove(1,"LEAF BLADE");
+	    ivysaur.setMove(2,"LEAF BLADE");
 	    ivysaur.setPP(2,15);
 	    ivysaur.setMaxPP(2,15);
 	    System.out.println("Congratulations! Your " + this + " evolved into " + ivysaur + "!");

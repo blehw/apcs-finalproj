@@ -61,7 +61,7 @@ public class Squirtle extends Water {
 	    wartortle.setMove(1,"WATER GUN");
 	    wartortle.setPP(1,25);
 	    wartortle.setMaxPP(1,25);
-	    wartortle.setMove(1,"SURF");
+	    wartortle.setMove(2,"SURF");
 	    wartortle.setPP(2,15);
 	    wartortle.setMaxPP(2,15);
 	    System.out.println("Congratulations! Your " + this + " evolved into " + wartortle + "!");

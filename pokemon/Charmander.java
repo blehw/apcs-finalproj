@@ -63,7 +63,7 @@ public class Charmander extends Fire {
 	    charmeleon.setMove(1,"EMBER");
 	    charmeleon.setPP(1,25);
 	    charmeleon.setMaxPP(1,25);
-	    charmeleon.setMove(1,"FLAMETHROWER");
+	    charmeleon.setMove(2,"FLAMETHROWER");
 	    charmeleon.setPP(2,15);
 	    charmeleon.setMaxPP(2,15);
 	    System.out.println("Congratulations! Your " + this + " evolved into " + charmeleon + "!");
