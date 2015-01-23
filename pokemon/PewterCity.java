@@ -85,9 +85,13 @@ public class PewterCity {
 		System.out.println("You walked 50 meters.");
 		System.out.println("You are " + meters + " meters from PEWTER CITY.");
 		int rand = r.nextInt(6);
-		if (rand <= 1) {
+		if (rand == 0) {
 		    Geodude geodude = new Geodude();
 		    battle.wildRoutine(player,geodude);
+		}
+		if (rand == 1) {
+		    Onix onix = new Onix();
+		    battle.wildRoutine(player,onix);
 		}
 		if (rand == 2) {
 		    Player hiker = new Player("RANDOM HIKER GUY");
@@ -115,21 +119,21 @@ public class PewterCity {
 		}
 		if (rand == 3) {
 		    Player hiker = new Player("RANDOM CLIMBER WOMAN");
-		    Geodude geodude = new Geodude();
-		    //Stats for Geodude
-		    geodude.setLevel(3);
-		    geodude.setMaxHealth(17 + r.nextInt(5));
-		    geodude.setHealth(geodude.getMaxHealth());
-		    geodude.setMaxSpeed(4 + r.nextInt(5));
-		    geodude.setSpeed(geodude.getMaxSpeed());
-		    geodude.setMaxDefense(4 + r.nextInt(5));
-		    geodude.setDefense(geodude.getMaxDefense());
-		    geodude.setMaxAttack(4 + r.nextInt(5));
-		    geodude.setAttack(geodude.getMaxAttack());
-		    geodude.setMove(1,"ROCK THROW");
-		    geodude.setPP(1,15);
-		    geodude.setMaxPP(1,15);
-		    hiker.setPokemon(geodude,0);
+		    Onix onix = new Onix();
+		    //Stats for Onix
+		    onix.setLevel(3);
+		    onix.setMaxHealth(17 + r.nextInt(5));
+		    onix.setHealth(onix.getMaxHealth());
+		    onix.setMaxSpeed(4 + r.nextInt(5));
+		    onix.setSpeed(onix.getMaxSpeed());
+		    onix.setMaxDefense(4 + r.nextInt(5));
+		    onix.setDefense(onix.getMaxDefense());
+		    onix.setMaxAttack(4 + r.nextInt(5));
+		    onix.setAttack(onix.getMaxAttack());
+		    onix.setMove(1,"ROCK TOMB");
+		    onix.setPP(1,15);
+		    onix.setMaxPP(1,15);
+		    hiker.setPokemon(onix,0);
 		    System.out.println(hiker + ": Scaling these rocks tires me out...but I've still got enough energy for a battle!");
 		    battle.trainerRoutine(player,hiker);
 		    if (player.getPokemon()[0].getHealth() > 0) {
@@ -149,32 +153,60 @@ public class PewterCity {
 	    } else {
 		System.out.println("You are " + meters + " meters from PEWTER CITY.");
 		int rand = r.nextInt(6);
-		if (rand <= 1) {
+		if (rand == 0) {
 		    Geodude geodude = new Geodude();
 		    battle.wildRoutine(player,geodude);
+		}
+		if (rand == 1) {
+		    Onix onix = new Onix();
+		    battle.wildRoutine(player,onix);
 		}
 		if (rand == 2) {
 		    Player hiker = new Player("RANDOM HIKER GUY");
 		    Geodude geodude = new Geodude();
+		    //Stats for Geodude
+		    geodude.setLevel(4);
+		    geodude.setMaxHealth(18 + r.nextInt(5));
+		    geodude.setHealth(geodude.getMaxHealth());
+		    geodude.setMaxSpeed(5 + r.nextInt(5));
+		    geodude.setSpeed(geodude.getMaxSpeed());
+		    geodude.setMaxDefense(5 + r.nextInt(5));
+		    geodude.setDefense(geodude.getMaxDefense());
+		    geodude.setMaxAttack(5 + r.nextInt(5));
+		    geodude.setAttack(geodude.getMaxAttack());
+		    geodude.setMove(1,"ROCK THROW");
+		    geodude.setPP(1,15);
+		    geodude.setMaxPP(1,15);
 		    hiker.setPokemon(geodude,0);
 		    System.out.println(hiker + ": Make sure you stay hydrated in these mountains...Let's battle to see how you're doing!");
 		    battle.trainerRoutine(player,hiker);
 		    if (player.getPokemon()[0].getHealth() > 0) {
 			System.out.println(hiker + ": Guess I didn't drink enough water...");
 			player.setMoney(player.getMoney() + 250);
-			System.out.println(player + " got $250 for winning!");
 		    }
 		}
 		if (rand == 3) {
 		    Player hiker = new Player("RANDOM CLIMBER WOMAN");
-		    Geodude geodude = new Geodude();
-		    hiker.setPokemon(geodude,0);
+		    Onix onix = new Onix();
+		    //Stats for Onix
+		    onix.setLevel(3);
+		    onix.setMaxHealth(17 + r.nextInt(5));
+		    onix.setHealth(onix.getMaxHealth());
+		    onix.setMaxSpeed(4 + r.nextInt(5));
+		    onix.setSpeed(onix.getMaxSpeed());
+		    onix.setMaxDefense(4 + r.nextInt(5));
+		    onix.setDefense(onix.getMaxDefense());
+		    onix.setMaxAttack(4 + r.nextInt(5));
+		    onix.setAttack(onix.getMaxAttack());
+		    onix.setMove(1,"ROCK TOMB");
+		    onix.setPP(1,15);
+		    onix.setMaxPP(1,15);
+		    hiker.setPokemon(onix,0);
 		    System.out.println(hiker + ": Scaling these rocks tires me out...but I've still got enough energy for a battle!");
 		    battle.trainerRoutine(player,hiker);
 		    if (player.getPokemon()[0].getHealth() > 0) {
 			System.out.println(hiker + ": Well, back to the cliffs...");
 			player.setMoney(player.getMoney() + 250);
-			System.out.println(player + " got $250 for winning!");
 		    }
 		}
 		training(player);
@@ -262,8 +294,9 @@ public class PewterCity {
 		Player brock = new Player("BROCK");
 		Geodude geodude0 = new Geodude();
 		Geodude geodude1 = new Geodude();
+		Onix onix = new Onix();
 		geodude0.setLevel(5);
-		geodude0.setMaxHealth(25);
+		geodude0.setMaxHealth(20);
 		geodude0.setHealth(geodude0.getMaxHealth());
 		geodude0.setMaxSpeed(10);
 		geodude0.setSpeed(geodude0.getMaxSpeed());
@@ -277,15 +310,30 @@ public class PewterCity {
 		geodude1.setLevel(5);
 		geodude1.setMaxHealth(25);
 		geodude1.setHealth(geodude1.getMaxHealth());
-		geodude1.setMaxSpeed(10);
+		geodude1.setMaxSpeed(12);
 		geodude1.setSpeed(geodude1.getMaxSpeed());
-		geodude1.setMaxDefense(10);
+		geodude1.setMaxDefense(12);
 		geodude1.setDefense(geodude1.getMaxDefense());
-		geodude1.setMaxAttack(10);
+		geodude1.setMaxAttack(12);
 		geodude1.setAttack(geodude1.getMaxAttack());
 		geodude1.setMove(1,"ROCK THROW");
 		geodude1.setPP(1,15);
 		geodude1.setMaxPP(1,15);
+		onix.setLevel(6);
+		onix.setMaxHealth(26);
+		onix.setHealth(onix.getMaxHealth());
+		onix.setMaxSpeed(10);
+		onix.setSpeed(onix.getMaxSpeed());
+		onix.setMaxDefense(15);
+		onix.setDefense(onix.getMaxDefense());
+		onix.setMaxAttack(15);
+		onix.setAttack(onix.getMaxAttack());
+		onix.setMove(1,"ROCK TOMB");
+		onix.setPP(1,15);
+		onix.setMaxPP(1,15);
+		onix.setMove(2,"SMACK DOWN");
+		onix.setPP(2,15);
+		onix.setMaxPP(2,15);
 		brock.setPokemon(geodude0,0);
 		brock.setPokemon(geodude1,1);
 		battle.trainerRoutine(player,brock);
