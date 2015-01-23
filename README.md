@@ -35,3 +35,4 @@ A BUNCH MORE POKEMON
 =======
 - 1/20/15 Worked on Pewter City, taught Pokemon how to learn moves, fixed problems with damage and attack WY
 - 1/21/15 Worked on catching Pokemon, buying Pokeballs, money, and Pewter City gym WY
+- 1/22/15 Debugged, debuuged, debugged, added catching pokemon, added switching pokemon,added PC, finished Pewter City, added Azalea Town, made more Pokemon WY
