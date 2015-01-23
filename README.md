@@ -16,11 +16,11 @@ apcs-finalproj: POKEMON
 - 1/17/15 Finished most of HomeTown and worked on Route1 WY
 - 1/18/15 Worked on Battle routine; what happens when you win/lose, finished save system WY
 
-making opponents in training area in pewter city harder (set their pokemon to 
-better stats + higher level)
-what happens when you first pokemon is dead (when you try to battle others the 
+---making opponents in training area in pewter city harder (set their
+pokemon to better stats + higher level)
+---what happens when you first pokemon is dead (when you try to battle others the 
 program will fail)
-what happens when you have no pokeballs and try to use a pokeball
+---what happens when you have no pokeballs and try to use a pokeball
 adding stuff to the pokemart/preventing it from breaking if our users are stupid
 A BUNCH MORE POKEMON
 

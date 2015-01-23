@@ -61,6 +61,7 @@ public class Route1 {
     }
 
     public String routinePewter(Player player) {
+	player.setLocation("Pewter City");
 	player.setLocation("Route 1");
 	System.out.println("Do you want to WALK FORWARDS (to PALLET TOWN) or WALK BACKWARDS (to PEWTER CITY)?");
 	s = scan.nextLine();
