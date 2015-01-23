@@ -29,7 +29,7 @@ A BUNCH MORE POKEMON
 ---add gym leader
 ---add training area (with trainers and wild pokemon)
 ---add pokemart
-add PC (in pokemon center)
+---add PC (in pokemon center)
 "a place with rocky rocks where you can train"
 ---increase stats by stage
 =======

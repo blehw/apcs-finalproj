@@ -17,7 +17,7 @@ public class Squirtle extends Water {
     }
 
     public String hydrocannon(BaseChar opponent) {
-	return moveMaker(opponent, "HYDROCANNON", "Water", 120, 50);
+	return moveMaker(opponent, "HYDRO CANNON", "Water", 120, 75);
     }
 
 
@@ -31,7 +31,7 @@ public class Squirtle extends Water {
 	    System.out.println("\n" + surf(opponent));
 	    return true;
 	}
-	if (move.equals("hydrocannon")) {
+	if (move.equals("hydro cannon")) {
 	    System.out.println("\n" + hydrocannon(opponent));
 	    return true;
 	}
@@ -39,20 +39,9 @@ public class Squirtle extends Water {
     }
     
     public void learnMoves(){
-	if (getLevel() == 2){
-	    int n = 0;
-	    while (n < nummoves() && getMoves()[n] != null) {
-		n = n + 1;
-	    }
-	    if (n <= 4) {
-		System.out.println(this + " learned WATER GUN!");
-		setMove(n,"WATER GUN");
-		setPP(n,25);
-		setMaxPP(n,25);
-	    } else {
-		System.out.println(this + " wants to learn WATER GUN! However, " + this + " already knows four moves. Delete to a move to make room for WATER GUN?");
-	    }
-	}
+        moveLearner("WATER GUN",2,25);
+	moveLearner("SURF",6,15);
+	moveLearner("HYDRO CANNON",14,5);
     }
 
     public void evolve(Player player) {

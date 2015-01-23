@@ -17,7 +17,7 @@ public class Bulbasaur extends Grass {
     }
 
     public String frenzyplant(BaseChar opponent){
-	return moveMaker(opponent, "FRENZY PLANT", "Grass", 120, 50);
+	return moveMaker(opponent, "FRENZY PLANT", "Grass", 120, 75);
     }
 
     public boolean useMove(String move, BaseChar opponent) {
@@ -37,20 +37,9 @@ public class Bulbasaur extends Grass {
     }
     
     public void learnMoves(){
-	if (getLevel() == 2){
-	    int n = 0;
-	    while (n < nummoves() && getMoves()[n] != null) {
-		n = n + 1;
-	    }
-	    if (n <= 4) {
-		System.out.println(this + " learned VINEWHIP!");
-		setMove(n,"VINEWHIP");
-		setPP(n,25);
-		setMaxPP(n,25);
-	    } else {
-		System.out.println(this + " wants to learn VINEWHIP! However, " + this + " already knows four moves. Delete to a move to make room for VINEWHIP?");
-	    }
-	}
+	moveLearner("VINEWHIP",2,25);
+	moveLearner("LEAF BLADE",7,15);
+	moveLearner("FRENZY PLANT",13,5);
     }
 
     public void evolve(Player player) {

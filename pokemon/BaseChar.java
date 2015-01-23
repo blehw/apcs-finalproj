@@ -259,6 +259,24 @@ public abstract class BaseChar implements Serializable {
 	return s;
     }
 
+    public String moveLearner(String move,int lev,int PP) {
+	if (getLevel() == lev){
+	    int n = 0;
+	    while (n < nummoves() && getMoves()[n] != null) {
+		n = n + 1;
+	    }
+	    if (n <= 4) {
+		System.out.println(this + " learned " + move + "!");
+		setMove(n,move);
+		setPP(n,PP);
+		setMaxPP(n,PP);
+	    } else {
+		System.out.println(this + " wants to learn " + move + "! However, " + this + " already knows four moves. Delete to a move to make room for " + move + "?");
+	    }
+	}
+	return "";
+    }
+
     public String tackle(BaseChar opponent) {
 	return moveMaker(opponent,"TACKLE","Normal",35,95);
     }

@@ -421,7 +421,7 @@ public class PewterCity {
 		route1.routinePewter(player);
 	    }
 	    if (s.equals("rocky rock training place")) {
-		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, an area with rocky terrain. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
+		System.out.println("You enter the ROCKY ROCK TRAINING PLACE, a place with rocky rocks where you can train. A sign reads, ROCKY ROCK TRAINING PLACE: THE 72ND TOUGHEST PLACE ON EARTH.");
 		training(player);
 	    }
 	    if (etc(player,source,s)) {

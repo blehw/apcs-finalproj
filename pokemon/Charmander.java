@@ -17,7 +17,7 @@ public class Charmander extends Fire {
     }
 
     public String blastburn(BaseChar opponent){
-	return moveMaker(opponent, "BLASTBURN", "Fire", 120, 50);
+	return moveMaker(opponent, "BLAST BURN", "Fire", 120, 75);
     }
 
     public boolean useMove(String move, BaseChar opponent) {
@@ -29,7 +29,7 @@ public class Charmander extends Fire {
 	    System.out.println("\n" + flamethrower(opponent));
 	    return true;
 	}
-	if (move.equals("blastburn")) {
+	if (move.equals("blast burn")) {
 	    System.out.println("\n" + blastburn(opponent));
 	    return true;
 	}
@@ -37,20 +37,9 @@ public class Charmander extends Fire {
     }
     
     public void learnMoves(){
-	if (getLevel() == 2){
-	    int n = 0;
-	    while (n < nummoves() && getMoves()[n] != null) {
-		n = n + 1;
-	    }
-	    if (n <= 4) {
-		System.out.println(this + " learned EMBER!");
-		setMove(n,"EMBER");
-		setPP(n,25);
-		setMaxPP(n,25);
-	    } else {
-		System.out.println(this + " wants to learn EMBER! However, " + this + " already knows four moves. Delete to a move to make room for EMBER?");
-	    }
-	}
+	moveLearner("EMBER",2,25);
+	moveLearner("FLAMETHROWER",8,15);
+	moveLearner("BLAST BURN",12,5);
     }
 
     public void evolve(Player player) {
